@@ -17,6 +17,15 @@
       "skills": [
         "./skills/splitting-pdf-chapters"
       ]
+    },
+    {
+      "name": "dev-tool",
+      "description": "Development tool skills",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/cmake-skill"
+      ]
     }
   ]
 }
