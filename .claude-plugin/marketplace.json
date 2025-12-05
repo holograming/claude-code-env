@@ -1,0 +1,22 @@
+{
+  "name": "lala-agent-skills",
+  "owner": {
+    "name": "hologramer",
+    "email": "holograming1220@gmail.com"
+  },
+  "metadata": {
+    "description": "holo dev useful skills",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "document-skills",
+      "description": "Collection of document processing capabilities",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/splitting-pdf-chapters"
+      ]
+    }
+  ]
+}
