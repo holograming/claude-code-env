@@ -1,0 +1,28 @@
+{
+  "skill": "notion-sync",
+  "version": "1.0.0",
+  "author": "claude-code",
+  "license": "MIT",
+  "repository": "https://github.com/anthropics/claude-code",
+  "tags": [
+    "notion",
+    "database",
+    "github",
+    "automation",
+    "productivity",
+    "coding-test"
+  ],
+  "keywords": [
+    "notion-sync",
+    "github-readme",
+    "programmers",
+    "korean-path"
+  ],
+  "dependencies": {
+    "python": ">=3.10",
+    "packages": [
+      "requests>=2.28.0",
+      "python-dotenv>=1.0.0"
+    ]
+  }
+}

@@ -19,12 +19,13 @@
       ]
     },
     {
-      "name": "dev-tool",
+      "name": "cpp-dev-tool",
       "description": "Development tool skills",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/cmake-skill"
+        "./skills/cmake-skill",
+        "./skills/cpp-dev-skills"
       ]
     }
   ]
