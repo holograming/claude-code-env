@@ -21,13 +21,151 @@ C++ 프로젝트 개발에 필요한 빌드 시스템, 컴파일러, 디버깅, 
 
 ## Quick Start: 프로젝트 생성 워크플로우
 
-1. **요구사항 분석** → 필요한 라이브러리/기능 파악
-2. **프로젝트 구조 생성** → 표준 디렉토리 구조
-3. **CMake 설정** → Modern CMake 패턴 적용
-4. **빌드 및 테스트** → 컴파일러/테스트 설정
+### 의사결정 플로우
+
+**Step 1: 프로젝트 목적 결정**
+```
+무엇을 만드는가?
+├─ 실행 가능한 프로그램
+│  ├─ 명령줄 도구/서버? → CLI Application ✅
+│  └─ 그래픽 사용자 인터페이스? → GUI Application ✅
+└─ 코드를 배포/공유?
+   ├─ 다른 프로젝트에 링크? → Library (Static/Shared) ✅
+   └─ 헤더만으로 충분? → Header-Only Library ✅
+```
+
+**Step 2: 플랫폼 및 컴파일러 선택**
+```
+어떤 플랫폼에서 개발하는가?
+├─ Windows → MSVC (Visual Studio) 권장 ⭐
+├─ Linux → GCC 권장 ⭐
+├─ macOS → Apple Clang (필수) ⭐
+└─ 크로스 플랫폼 → CMake generator expressions 사용
+```
+
+**Step 3: 프로젝트 복잡도 판단**
+```
+타겟 수와 의존성을 기준으로:
+├─ 1-2개 타겟, 의존성 ≤ 2개
+│  → Level 1: 단일 CMakeLists.txt (간단함) ✅
+├─ 2-3개 타겟, 의존성 2-3개
+│  → Level 2: 서브디렉토리별 CMakeLists.txt ✅
+└─ 3개+ 타겟, 의존성 3개+
+   → Level 3: cmake/ 폴더로 모듈화 ✅
+```
+
+n**Step 4: CMake, 컴파일러, 의존성 자동 감지**
+
+자동 감지 프로세스 (환경변수 우선):
+```
+1. 컴파일러 감지 (CXX 환경변수 확인)
+   ├─ 설정됨 → 자동 사용 ✅
+   └─ 미설정 → 플랫폼별 기본값 제시
+
+2. CMake 확인 (설치 여부 및 버전)
+   ├─ 설치됨 (3.15+) → 자동 사용 ✅
+   └─ < 3.15 또는 미설치 → 사용자 확인
+
+3. 의존성 관리 전략 (외부 라이브러리 필요시)
+   ├─ VCPKG_ROOT 설정됨 → vcpkg 자동 사용 ✅
+   ├─ CMAKE_PREFIX_PATH 설정됨 → find_package 사용 ✅
+   └─ 미설정 → 사용자 선택:
+      ├─ FetchContent (작은 라이브러리)
+      ├─ find_package (시스템 패키지)
+      ├─ vcpkg (팀 협업 권장)
+      └─ Conan (고급)
+```
+
+**중요**: 환경변수 설정 후 다시 물어보지 않음!
+- `export CXX=g++` → 자동 사용
+- `export VCPKG_ROOT=~/vcpkg` → 자동 사용
+
+자세한 내용: `references/project-setup.md`
+
+### 프로젝트 유형별 빠른 생성
+
+#### CLI Application
+```bash
+# 자동 생성 (권장)
+python scripts/init_project.py myapp --type cli
+
+# 또는 수동으로
+mkdir myapp && cd myapp
+cmake -B build
+cmake --build build
+./build/myapp
+```
+
+**CMakeLists.txt 예제**:
+```cmake
+cmake_minimum_required(VERSION 3.15)
+project(MyApp VERSION 1.0.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_executable(myapp src/main.cpp src/utils.cpp)
+target_include_directories(myapp PRIVATE include)
+
+# 의존성 (선택)
+find_package(fmt REQUIRED)
+target_link_libraries(myapp PRIVATE fmt::fmt)
+```
+
+#### GUI Application (Qt 6)
+```bash
+# 자동 생성
+python scripts/init_project.py myapp --type gui --gui-framework qt6
+
+# CMakeLists.txt (Qt 6 예제)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+
+add_executable(myapp src/main.cpp src/mainwindow.cpp)
+target_link_libraries(myapp PRIVATE Qt6::Widgets)
+```
+
+#### Static Library
+```bash
+# 자동 생성
+python scripts/init_project.py mylib --type static-lib
+
+# CMakeLists.txt
+add_library(mylib STATIC src/lib.cpp)
+target_include_directories(mylib
+    PUBLIC include
+    PRIVATE src
+)
+add_library(MyLib::mylib ALIAS mylib)
+```
+
+#### Shared Library
+```bash
+# 자동 생성
+python scripts/init_project.py mylib --type shared-lib
+
+# CMakeLists.txt
+add_library(mylib SHARED src/lib.cpp)
+set_target_properties(mylib PROPERTIES
+    VERSION 1.0.0
+    SOVERSION 1
+)
+```
+
+#### Header-Only Library
+```bash
+# 자동 생성
+python scripts/init_project.py mylib --type header-only
+
+# CMakeLists.txt
+add_library(mylib INTERFACE)
+target_include_directories(mylib INTERFACE include)
+```
 
 ### 표준 프로젝트 구조
 
+**단순 프로젝트** (Level 1-2):
 ```
 project/
 ├── CMakeLists.txt          # 빌드 설정
@@ -43,18 +181,47 @@ project/
 └── .gitignore
 ```
 
+**복잡한 프로젝트** (Level 3, 3개+ 타겟):
+```
+project/
+├── CMakeLists.txt              # 루트 설정 (간결)
+├── cmake/                      # CMake 모듈 (공통 설정 분리)
+│   ├── Dependencies.cmake
+│   ├── CompilerWarnings.cmake
+│   └── Sanitizers.cmake
+├── src/
+│   ├── app1/
+│   │   ├── CMakeLists.txt
+│   │   └── main.cpp
+│   ├── app2/
+│   │   ├── CMakeLists.txt
+│   │   └── main.cpp
+│   └── common/
+│       ├── CMakeLists.txt
+│       └── lib.cpp
+├── include/
+├── tests/
+└── .gitignore
+```
+
+자세한 내용: `references/project-setup.md`
+
 ## Reference 선택 가이드
 
 | 사용자 요청 | 참조 파일 |
 |------------|----------|
-| CMake 설정, 빌드 시스템 | `references/cmake.md` |
-| 컴파일러 옵션, 플래그 | `references/compilers.md` |
+| **프로젝트 생성, 타입 선택, cmake 구조, 의존성 관리** | **`references/project-setup.md`** ⭐ |
+| **컴파일러 선택, 플랫폼별 기본값, auto-detection** | **`references/compilers.md`** ⭐ |
+| CMake 설정, 빌드 시스템, 모던 CMake 패턴 | `references/cmake.md` |
+| CMake Presets (3.19+), 플랫폼별 빌드 구성 | `references/cmake-presets.md` |
 | 디버깅, GDB 사용 | `references/debug.md` |
 | 테스트 작성, Google Test | `references/testing.md` |
 | 코드 포맷팅, 린팅 | `references/codequality.md` |
-| 메모리 분석, Valgrind | `references/memory.md` |
+| 메모리 분석, Valgrind, Sanitizers | `references/memory.md` |
 | 디자인 패턴 | `references/designpatterns.md` |
 | Git 워크플로우 | `references/versioncontrols.md` |
+
+**⭐ 새로 추가된 내용**: 프로젝트 생성과 컴파일러 선택 가이드가 대폭 강화되었습니다. 프로젝트를 시작할 때 먼저 `project-setup.md`를 참조하세요!
 
 ## Core Principles
 
