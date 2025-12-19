@@ -15,7 +15,8 @@
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/splitting-pdf-chapters"
+        "./skills/splitting-pdf-chapters",
+        "./skills/code2doc"
       ]
     },
     {
