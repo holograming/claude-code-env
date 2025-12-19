@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "Automation decision database for cpp-dev-skills. Used by Claude to auto-select frameworks, dependencies, and build strategies without user intervention.",
+
+  "gui_frameworks": {
+    "qt6": {
+      "build_time_minutes": 20,
+      "dll_size_mb": 100,
+      "complexity": "high",
+      "vcpkg_package": "qt6-base",
+      "cmake_components": ["Core", "Gui", "Widgets"],
+      "auto_select_when": [
+        "enterprise_ui",
+        "cross_platform_complex",
+        "rich_widgets_needed",
+        "professional_appearance"
+      ],
+      "avoid_when": [
+        "build_time_critical",
+        "simple_viewer",
+        "minimal_dependencies",
+        "embedded_system"
+      ],
+      "use_case_keywords": ["enterprise", "professional", "complex UI", "rich widgets"]
+    },
+    "wxwidgets": {
+      "build_time_minutes": 5,
+      "dll_size_mb": 10,
+      "complexity": "medium",
+      "vcpkg_package": "wxwidgets",
+      "cmake_find_package": "wxWidgets",
+      "auto_select_when": [
+        "native_look_feel",
+        "moderate_complexity",
+        "faster_build",
+        "3d_viewer",
+        "simple_gui"
+      ],
+      "avoid_when": [
+        "mobile_support_needed",
+        "modern_flat_design"
+      ],
+      "use_case_keywords": ["3D viewer", "native UI", "desktop app", "viewer", "graphics"]
+    },
+    "fltk": {
+      "build_time_minutes": 2,
+      "dll_size_mb": 2,
+      "complexity": "low",
+      "vcpkg_package": "fltk",
+      "cmake_find_package": "FLTK",
+      "auto_select_when": [
+        "minimal_gui",
+        "very_fast_build",
+        "embedded_ui",
+        "simple_dialogs"
+      ],
+      "avoid_when": [
+        "modern_appearance_needed",
+        "complex_layouts"
+      ],
+      "use_case_keywords": ["minimal", "simple", "lightweight", "embedded"]
+    },
+    "imgui": {
+      "build_time_minutes": 1,
+      "dll_size_mb": 1,
+      "complexity": "low",
+      "vcpkg_package": "imgui",
+      "auto_select_when": [
+        "immediate_mode_gui",
+        "game_tools",
+        "debug_ui",
+        "opengl_integration"
+      ],
+      "avoid_when": [
+        "native_look_needed",
+        "accessibility_required"
+      ],
+      "use_case_keywords": ["game", "debug", "tool", "immediate mode", "editor"]
+    }
+  },
+
+  "dependency_strategies": {
+    "vcpkg": {
+      "priority": 1,
+      "use_when": {
+        "conditions": [
+          "VCPKG_ROOT environment variable set",
+          "team_collaboration",
+          "version_control_critical",
+          "library_size > 10MB",
+          "reproducible_builds_needed"
+        ],
+        "min_conditions_met": 1
+      },
+      "avoid_when": [
+        "build_time < 2min required",
+        "single_developer && prototype"
+      ],
+      "setup_required": "export VCPKG_ROOT=/path/to/vcpkg"
+    },
+    "FetchContent": {
+      "priority": 2,
+      "use_when": {
+        "conditions": [
+          "library_size < 1MB",
+          "header_only_library",
+          "latest_version_needed",
+          "no_package_manager_setup",
+          "prototype_project"
+        ],
+        "min_conditions_met": 1
+      },
+      "avoid_when": [
+        "library_size > 50MB",
+        "stable_version_required"
+      ]
+    },
+    "find_package": {
+      "priority": 3,
+      "use_when": {
+        "conditions": [
+          "CMAKE_PREFIX_PATH set",
+          "system_package_installed",
+          "fast_build_critical",
+          "boost || qt || opencv already installed"
+        ],
+        "min_conditions_met": 1
+      },
+      "avoid_when": [
+        "cross_platform_consistency_needed"
+      ]
+    }
+  },
+
+  "compiler_selection": {
+    "Windows": {
+      "primary": "MSVC",
+      "detection_env": "CXX",
+      "fallback_order": ["MinGW-w64", "Clang-cl"],
+      "auto_select": true,
+      "cmake_generator": "Visual Studio 17 2022"
+    },
+    "Linux": {
+      "primary": "GCC",
+      "detection_env": "CXX",
+      "fallback_order": ["Clang"],
+      "auto_select": true,
+      "cmake_generator": "Unix Makefiles"
+    },
+    "Darwin": {
+      "primary": "AppleClang",
+      "detection_env": "CXX",
+      "fallback_order": ["GCC (Homebrew)"],
+      "auto_select": true,
+      "cmake_generator": "Unix Makefiles"
+    }
+  },
+
+  "build_type_selection": {
+    "development": {
+      "cmake_build_type": "Debug",
+      "enable_sanitizers": true,
+      "sanitizer_preference": "ASAN",
+      "compiler_warnings": "strict"
+    },
+    "production": {
+      "cmake_build_type": "Release",
+      "enable_lto": true,
+      "optimization_level": "O3"
+    }
+  },
+
+  "library_size_thresholds_mb": {
+    "small": 1,
+    "medium": 10,
+    "large": 50,
+    "very_large": 100
+  },
+
+  "decision_logic_examples": {
+    "user_request_parsing": {
+      "example": "Qt로 3D 뷰어 만들어줘",
+      "extracted_keywords": ["Qt", "3D", "뷰어", "viewer"],
+      "detected_features": {
+        "project_type": "gui",
+        "gui_framework_mentioned": "qt6",
+        "use_case": "3d_viewer"
+      },
+      "decision_flow": [
+        "1. Check use_case: '3d_viewer' -> wxwidgets.auto_select_when includes 3d_viewer",
+        "2. Check keywords: 'Qt' mentioned -> User preference for Qt",
+        "3. CONFLICT: Use case suggests wxWidgets, user says Qt",
+        "4. Ask user: 'Qt6 will take 20min to build. Use wxWidgets (5min) instead?'",
+        "5. If user accepts -> wxWidgets, else -> Qt6"
+      ]
+    },
+    "framework_selection_logic": {
+      "input_keywords": ["3d", "viewer", "visualization"],
+      "matching_frameworks": {
+        "wxwidgets": {
+          "score": 3,
+          "reason": "3d_viewer in auto_select_when"
+        },
+        "fltk": {
+          "score": 1,
+          "reason": "minimal_gui matches simple viewer"
+        }
+      },
+      "selected": "wxwidgets",
+      "confidence": "95%"
+    }
+  }
+}

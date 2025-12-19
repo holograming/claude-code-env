@@ -1,0 +1,239 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "Error pattern database for automatic error detection and fixing. Used by Claude to auto-diagnose and auto-fix build errors.",
+
+  "patterns": [
+    {
+      "id": "windows_max_path",
+      "regex": "(path.*exceeds 260|MAX_PATH|error: .*260 characters|The filename or extension is too long)",
+      "platform": ["Windows"],
+      "severity": "high",
+      "category": "filesystem",
+      "description": "Windows MAX_PATH limit (260 characters) exceeded",
+      "auto_fix": [
+        {
+          "method": "registry_enable_long_paths",
+          "command_windows": "powershell -Command \"New-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem' -Name 'LongPathsEnabled' -Value 1 -PropertyType DWORD -Force\"",
+          "requires_admin": true,
+          "success_indicator": "registry updated",
+          "note": "Requires admin privileges, user will be prompted"
+        },
+        {
+          "method": "suggest_short_vcpkg_root",
+          "message": "Consider setting VCPKG_ROOT to a shorter path (e.g., C:\\vcpkg instead of C:\\Users\\Username\\vcpkg)",
+          "manual": true
+        }
+      ],
+      "fallback": [
+        {
+          "method": "junction_point",
+          "command_windows": "mklink /J C:\\v %VCPKG_ROOT%",
+          "message": "Creating junction point C:\\v -> VCPKG_ROOT"
+        }
+      ],
+      "user_message": "Windows path limit exceeded. Auto-enabling long paths (requires admin)...",
+      "prevention": "Set VCPKG_ROOT to C:\\vcpkg (short path) before installation"
+    },
+    {
+      "id": "dll_not_found",
+      "regex": "(.*\\.dll was not found|cannot find.*\\.dll|missing.*\\.dll|The application failed to start)",
+      "platform": ["Windows"],
+      "severity": "critical",
+      "category": "runtime",
+      "description": "Required DLL not found in PATH",
+      "auto_fix": [
+        {
+          "method": "copy_dlls_to_build",
+          "command_windows": "python -c \"import shutil, os; vcpkg_bin = os.path.join(os.environ.get('VCPKG_ROOT', ''), 'installed', 'x64-windows', 'bin'); build_dir = 'build/Debug'; [shutil.copy(os.path.join(vcpkg_bin, f), build_dir) for f in os.listdir(vcpkg_bin) if f.endswith('.dll')]\"",
+          "requires_admin": false,
+          "success_indicator": "DLLs copied"
+        }
+      ],
+      "user_message": "Missing DLLs detected. Auto-copying from vcpkg to build directory...",
+      "prevention": "Add CMAKE_INSTALL_RPATH or use static linking"
+    },
+    {
+      "id": "vcpkg_memory_exhaustion",
+      "regex": "(out of memory|cannot allocate memory|killed.*vcpkg|OOM|memory exhausted)",
+      "platform": ["all"],
+      "severity": "high",
+      "category": "build",
+      "description": "Memory exhaustion during vcpkg build (typically Qt6)",
+      "auto_fix": [
+        {
+          "method": "set_max_concurrency",
+          "command_windows": "$env:VCPKG_MAX_CONCURRENCY=4",
+          "command_linux": "export VCPKG_MAX_CONCURRENCY=4",
+          "requires_admin": false,
+          "success_indicator": "VCPKG_MAX_CONCURRENCY set",
+          "note": "Reduces parallel builds to prevent memory exhaustion"
+        }
+      ],
+      "user_message": "Memory exhaustion detected. Reducing vcpkg build concurrency to 4 cores...",
+      "prevention": "Set VCPKG_MAX_CONCURRENCY=(CPU_cores/2) before building large packages"
+    },
+    {
+      "id": "cmake_package_not_found",
+      "regex": "(Could not find a package configuration file provided by|CMake Error.*find_package|No package.*found|.*Config\\.cmake.*not found)",
+      "platform": ["all"],
+      "severity": "critical",
+      "category": "configuration",
+      "description": "CMake cannot find package (missing CMAKE_TOOLCHAIN_FILE)",
+      "auto_fix": [
+        {
+          "method": "add_toolchain_file",
+          "command_windows": "cmake -B build -DCMAKE_TOOLCHAIN_FILE=%VCPKG_ROOT%/scripts/buildsystems/vcpkg.cmake",
+          "command_linux": "cmake -B build -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake",
+          "requires_admin": false,
+          "condition": "VCPKG_ROOT is set",
+          "note": "Adds vcpkg toolchain file to CMake configuration"
+        },
+        {
+          "method": "create_vcpkg_json",
+          "message": "Creating vcpkg.json manifest file if needed",
+          "manual": false
+        }
+      ],
+      "fallback": [
+        {
+          "method": "suggest_install",
+          "message": "Package not found. Install with: vcpkg install <package>"
+        }
+      ],
+      "user_message": "Package not found. Configuring vcpkg toolchain...",
+      "prevention": "Always use CMAKE_TOOLCHAIN_FILE with vcpkg"
+    },
+    {
+      "id": "version_conflict",
+      "regex": "(version conflict|incompatible versions|requires version|constraint.*not satisfied)",
+      "platform": ["all"],
+      "severity": "medium",
+      "category": "dependency",
+      "description": "Package version conflict in vcpkg",
+      "auto_fix": [
+        {
+          "method": "update_baseline",
+          "command_windows": "vcpkg x-update-baseline",
+          "command_linux": "vcpkg x-update-baseline",
+          "requires_admin": false,
+          "note": "Updates vcpkg baseline to latest"
+        }
+      ],
+      "user_message": "Version conflict detected. Updating vcpkg baseline...",
+      "prevention": "Pin versions in vcpkg.json"
+    },
+    {
+      "id": "compiler_not_found",
+      "regex": "(Could not find compiler|No CMAKE_CXX_COMPILER|compiler not found|cl\\.exe.*not found|g\\+\\+.*not found)",
+      "platform": ["all"],
+      "severity": "critical",
+      "category": "configuration",
+      "description": "C++ compiler not detected",
+      "auto_fix": [
+        {
+          "method": "detect_compiler",
+          "command_windows": "python scripts/detect_tools.py",
+          "command_linux": "python scripts/detect_tools.py",
+          "requires_admin": false,
+          "note": "Runs auto-detection of installed compilers"
+        }
+      ],
+      "user_message": "Compiler not found. Running auto-detection...",
+      "prevention": "Set CXX environment variable"
+    },
+    {
+      "id": "sanitizer_mutual_exclusion",
+      "regex": "(ASAN.*TSAN|ThreadSanitizer.*AddressSanitizer|both sanitizers enabled|cannot use.*together)",
+      "platform": ["Linux", "Darwin"],
+      "severity": "medium",
+      "category": "configuration",
+      "description": "ASAN and TSAN are mutually exclusive",
+      "auto_fix": [
+        {
+          "method": "disable_tsan",
+          "command": "cmake -B build -DENABLE_TSAN=OFF -DENABLE_ASAN=ON",
+          "message": "Disabling TSAN (conflicts with ASAN)"
+        }
+      ],
+      "user_message": "ASAN and TSAN cannot run together. Keeping ASAN, disabling TSAN...",
+      "prevention": "Use ASAN for memory bugs OR TSAN for threading bugs, not both"
+    },
+    {
+      "id": "vcpkg_file_locked",
+      "regex": "(File is locked|vcpkg_installed.*locked|unable to delete|Permission denied|Access is denied)",
+      "platform": ["Windows"],
+      "severity": "medium",
+      "category": "filesystem",
+      "description": "vcpkg files locked by running process",
+      "auto_fix": [
+        {
+          "method": "kill_process",
+          "command_windows": "taskkill /F /IM vcpkg.exe",
+          "requires_admin": false,
+          "note": "Terminates vcpkg.exe processes"
+        }
+      ],
+      "user_message": "vcpkg files locked. Terminating vcpkg processes...",
+      "prevention": "Close applications using vcpkg libraries before rebuild"
+    },
+    {
+      "id": "cmake_version_too_old",
+      "regex": "(CMake \\d+\\.\\d+ found|require.*CMake.*3\\.15|cmake version \\d+\\.\\d+.*too old)",
+      "platform": ["all"],
+      "severity": "high",
+      "category": "configuration",
+      "description": "CMake version is too old (< 3.15 required)",
+      "auto_fix": [
+        {
+          "method": "check_cmake_version",
+          "command": "cmake --version",
+          "requires_admin": false,
+          "note": "User will need to install CMake 3.15+ manually"
+        }
+      ],
+      "user_message": "CMake version too old. Please install CMake 3.15+",
+      "prevention": "Install CMake 3.15 or later"
+    },
+    {
+      "id": "linker_error_undefined_reference",
+      "regex": "(undefined reference|unresolved external symbol|ld returned 1 exit code)",
+      "platform": ["all"],
+      "severity": "critical",
+      "category": "linking",
+      "description": "Linker cannot find library or symbol",
+      "auto_fix": [
+        {
+          "method": "check_target_link_libraries",
+          "message": "Ensure all dependencies are linked with target_link_libraries()",
+          "manual": true
+        }
+      ],
+      "user_message": "Linker error: undefined reference. Check target_link_libraries() in CMakeLists.txt",
+      "prevention": "Always link required libraries in CMakeLists.txt"
+    }
+  ],
+
+  "error_recovery_protocol": {
+    "max_retry_attempts": 3,
+    "retry_strategy": "exponential_backoff",
+    "fallback_chain": [
+      "Apply auto_fix",
+      "Apply fallback if auto_fix fails",
+      "Ask user for manual intervention"
+    ]
+  },
+
+  "usage_example": {
+    "scenario": "Build fails with MAX_PATH error",
+    "detection": "Regex matches: path.*exceeds 260",
+    "action_sequence": [
+      "1. Match error to pattern ID: windows_max_path",
+      "2. Execute auto_fix[0]: Enable long paths in registry",
+      "3. If fails (no admin), execute auto_fix[1]: Suggest short path",
+      "4. If fails, execute fallback: Create junction point",
+      "5. Retry build",
+      "6. If still fails after 3 attempts, report to user"
+    ]
+  }
+}

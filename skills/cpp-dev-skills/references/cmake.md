@@ -1,6 +1,6 @@
 # CMake Build System
 
-Modern CMake (3.15+) 베스트 프랙티스 가이드.
+**For Claude Automation:** Modern CMake (3.15+) 핵심 패턴. 사용자 튜토리얼 제거.
 
 ## Basic Template
 
@@ -314,3 +314,56 @@ cmake --debug-find -B build
 | C++ 표준 | `target_compile_features(name PUBLIC cxx_std_17)` |
 | 패키지 찾기 | `find_package(Name REQUIRED)` |
 | 소스 빌드 | `FetchContent_Declare() + FetchContent_MakeAvailable()` |
+
+---
+
+## 의존성 관리 전략
+
+See `automation/decisions.json` for strategy selection logic.
+
+### FetchContent (< 1MB libraries)
+```cmake
+include(FetchContent)
+FetchContent_Declare(fmt GIT_REPOSITORY ... GIT_TAG 9.1.0)
+FetchContent_MakeAvailable(fmt)
+target_link_libraries(myapp PRIVATE fmt::fmt)
+```
+
+### find_package (시스템 설치)
+```cmake
+find_package(OpenSSL REQUIRED)
+target_link_libraries(myapp PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+```
+
+### vcpkg (권장)
+```bash
+export VCPKG_ROOT=~/vcpkg
+cmake -B build -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake
+```
+
+---
+
+## 프로젝트 복잡도별 구조
+
+**Level 1-2**: 단순/중간 복잡도
+```cmake
+cmake_minimum_required(VERSION 3.15)
+project(MyProject)
+add_executable(myapp src/main.cpp)
+target_include_directories(myapp PRIVATE include)
+```
+
+**Level 3**: 멀티타겟 + cmake/ 모듈화
+```
+project/
+├── CMakeLists.txt
+├── cmake/
+│   ├── Dependencies.cmake
+│   ├── CompilerWarnings.cmake
+│   └── Sanitizers.cmake
+├── src/CMakeLists.txt
+└── tests/CMakeLists.txt
+```
+
+See `references/project-setup.md` for structure selection
+

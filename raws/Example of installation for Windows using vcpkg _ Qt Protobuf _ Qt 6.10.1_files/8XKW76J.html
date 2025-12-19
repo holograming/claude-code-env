@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)https://www.surveymonkey.com/r/8XKW76J?pagename=%2Fqt-6%2Fqtprotobuf-installation-windows-vcpkg.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="apple-touch-icon" href="https://www.surveymonkey.com/apple-touch-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="https://www.surveymonkey.com/apple-touch-icon-57x57-precomposed.png"><link rel="apple-touch-icon" sizes="60x60" href="https://www.surveymonkey.com/apple-touch-icon-60x60-precomposed.png"><link rel="apple-touch-icon" sizes="72x72" href="https://www.surveymonkey.com/apple-touch-icon-72x72-precomposed.png"><link rel="apple-touch-icon" sizes="76x76" href="https://www.surveymonkey.com/apple-touch-icon-76x76-precomposed.png"><link rel="apple-touch-icon" sizes="114x114" href="https://www.surveymonkey.com/apple-touch-icon-114x114-precomposed.png"><link rel="apple-touch-icon" sizes="120x120" href="https://www.surveymonkey.com/apple-touch-icon-120x120-precomposed.png"><link rel="apple-touch-icon" sizes="144x144" href="https://www.surveymonkey.com/apple-touch-icon-144x144-precomposed.png"><link rel="apple-touch-icon" sizes="152x152" href="https://www.surveymonkey.com/apple-touch-icon-152x152-precomposed.png"><link rel="apple-touch-icon" sizes="180x180" href="https://www.surveymonkey.com/apple-touch-icon-180x180-precomposed.png"><link rel="shortcut icon" href="https://prod.smassets.net/assets/static/images/surveymonkey/favicon.ico"><title>SurveyMonkey Powered Online Survey</title><meta name="twitter:card" content="summary_large_image"><meta property="og:title" content="Qt Documentation Feedback"><meta property="og:image" content="https://surveymonkey-assets.s3.amazonaws.com/collector/459057950/image_upload/fdfd856b-677b-4e0c-81b9-e8860d51d4f7.png"><meta property="og:description" content="Help us improve!"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"><meta name="robots" content="noindex, follow"><meta http-equiv="content-language" content="en-US"><link rel="canonical" href="https://www.surveymonkey.com/r/8XKW76J"><meta name="next-head-count" content="21"><link nonce="" rel="preload" href="./09b8ded99e3057ee.css" as="style"><link nonce="" rel="stylesheet" href="./09b8ded99e3057ee.css" data-n-g=""><link nonce="" rel="preload" href="./c3da3695a6fe8a3f.css" as="style"><link nonce="" rel="stylesheet" href="./c3da3695a6fe8a3f.css" data-n-p=""><link nonce="" rel="preload" href="./c66f189498306a9b.css" as="style"><link nonce="" rel="stylesheet" href="./c66f189498306a9b.css" data-n-p=""><noscript data-n-css="YzUzNGE4YmUtZDcyZC00ZmM2LTg0ZmEtOTJkYmVjZmRmYWY0"></noscript><script defer="" nonce="" nomodule="" src="./polyfills-42372ed130431b0a.js.다운로드"></script><script src="./webpack-0c576eebb9b8219a.js.다운로드" nonce="" defer=""></script><script src="./framework-5ddd597c94d4e4d0.js.다운로드" nonce="" defer=""></script><script src="./main-6a8e4be21cba062a.js.다운로드" nonce="" defer=""></script><script src="./_app-8a687f484056e7aa.js.다운로드" nonce="" defer=""></script><script src="./8174a357-73846c1f42d8a17d.js.다운로드" nonce="" defer=""></script><script src="./eaa715df-5b7d0fae7048eb19.js.다운로드" nonce="" defer=""></script><script src="./86625aeb-fbbac1b20e55b72e.js.다운로드" nonce="" defer=""></script><script src="./4a616997-2cb747ddd15b9067.js.다운로드" nonce="" defer=""></script><script src="./82-cad7742c77228264.js.다운로드" nonce="" defer=""></script><script src="./481-940582b566af81f2.js.다운로드" nonce="" defer=""></script><script src="./530-65040d315ff6df69.js.다운로드" nonce="" defer=""></script><script src="./833-dd8e1ac26dd1b1bc.js.다운로드" nonce="" defer=""></script><script src="./80-e526dc25f7417b25.js.다운로드" nonce="" defer=""></script><script src="./825-cfbb7e3027125656.js.다운로드" nonce="" defer=""></script><script src="./714-3aec865d013161fa.js.다운로드" nonce="" defer=""></script><script src="./[collectKey]-cff1c98d84ff5ed4.js.다운로드" nonce="" defer=""></script><script src="./_buildManifest.js.다운로드" nonce="" defer=""></script><script src="./_ssgManifest.js.다운로드" nonce="" defer=""></script><style id="jss">[class*='smqr-'],[class*='smqr-']::before,[class*='smqr-']::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+}
+@font-face {
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/regular.woff) format('woff');
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/regular.eot#iefix) format('embedded-opentype');
+  font-family: 'National 2';
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/regular.woff2) format('woff2');
+}
+@font-face {
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/medium.woff) format('woff');
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/medium.eot#iefix) format('embedded-opentype');
+  font-family: 'National 2';
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/medium.woff2) format('woff2');
+}
+[class*='wrench'], [class*='wrench']::before, [class*='wrench']::after {
+  box-sizing: border-box;
+  font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-size: 16px;
+}
+.skipLinks-0-2-23 {
+  top: 0;
+  clip: rect(0 0 0 0);
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  z-index: 999999;
+  overflow: hidden;
+  position: absolute;
+  font-size: 16px;
+  font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+  font-weight: 500;
+  background-color: #fff;
+}
+.skipLinks-0-2-23:focus-within {
+  clip: auto;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  position: fixed;
+}
+.skipLinks-0-2-23 > a {
+  color: #007faa;
+  margin-right: 8px;
+  text-decoration: underline;
+}
+.skipLinks-0-2-23 > a:hover, .skipLinks-0-2-23 > a:focus {
+  outline: 2px solid #007faa;
+  outline-offset: 2px;
+}
+.sm-surveyTitle-0-2-46 {
+  color: rgba(255,255,255,1);
+  margin: 0;
+  font-size: 26px;
+  font-style: normal;
+  font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+  font-weight: 400;
+  line-height: 1.25;
+  padding-bottom: 24px;
+  text-decoration: none;
+}
+.sm-surveyTitle-0-2-46 strong {
+  font-weight: bold !important;
+}
+@media (max-width: 640px) {
+  .sm-surveyTitle-0-2-46 {  }
+}
+  .sm-surveyTitleWrapper-0-2-47 {  }
+  .sm-surveyTitleOuterWrapper-0-2-48 {  }
+  .sm-surveyTitle-d0-0-2-49 {
+    width: 100%;
+    text-align: start;
+  }
+  .sm-surveyTitleWrapper-d1-0-2-50 {  }
+  .sm-surveyTitleOuterWrapper-d2-0-2-51 {  }
+  .sm-surveyAnchor-0-2-58 {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .sm-surveyAnchor-0-2-58:hover, .sm-surveyAnchor-0-2-58:focus {
+    outline: 1px solid rgba(174,174,174,1);
+    box-shadow: 0 0 1px transparent;
+    outline-offset: 1px;
+  }
+  .sm-surveyAnchor-d0-0-2-59 {
+    color: ;
+    text-decoration: none;
+  }
+  .sm-surveyAnchor-d0-0-2-59:hover, .sm-surveyAnchor-d0-0-2-59:focus {
+    text-decoration: underline;
+  }
+  .sm-surveyButton-0-2-54 {
+    color: rgba(255,255,255,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    height: auto;
+    display: inline-flex;
+    max-width: 100%;
+    min-width: 60px;
+    box-sizing: border-box;
+    transition: outline-offset 0.2s linear;
+    align-items: center;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    border-radius: 2px;
+    overflow-wrap: break-word;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgba(18,131,75,1);
+  }
+  .sm-surveyButton-0-2-54:focus, .sm-surveyButton-0-2-54:hover {
+    outline: 1px solid rgba(174,174,174,1);
+    box-shadow: 0 0 4px transparent;
+    outline-offset: 5px;
+  }
+  .sm-surveyButton-0-2-54[aria-disabled] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .sm-surveyButton-d0-0-2-55 {
+    font-size: 15px;
+    padding: 0 36px;
+    min-height: 50px;
+  }
+  .sm-layoutContainer-0-2-24 {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+  }
+  .sm-layoutPartialContainer-0-2-25 {
+    order: 1;
+    width: 0%;
+    height: 100%;
+    position: relative;
+    min-height: auto;
+  }
+  .sm-layoutPartialContainer-0-2-25:before {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+    z-index: -10;
+    position: fixed;
+    background: rgba(255,255,255,1) 50% 50%;
+    min-height: auto;
+    background-size: cover;
+    background-image: linear-gradient(rgba(31,31,31,1), rgba(31,31,31,1));
+  }
+  .sm-layoutContentContainer-0-2-26 {
+    order: 2;
+    width: 100%;
+    flex-grow: 0;
+    box-sizing: border-box;
+    min-height: 100%;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+  }
+@media (min-width: 641px) {
+  .sm-layoutContentContainer-0-2-26 {
+    width: 66%;
+    margin-right: 34%;
+  }
+}
+@media (min-width: 769px) {
+  .sm-layoutContentContainer-0-2-26 {
+    width: 50%;
+    margin-right: 50%;
+  }
+}
+  .sm-layoutTopContainer-0-2-27 {  }
+  .sm-layoutMainContainer-0-2-28 {
+    padding: 40px 24px 0 24px;
+    max-width: 896px;
+  }
+@media (min-width: 641px) {
+  .sm-layoutMainContainer-0-2-28 {
+    padding: 40px 40px 0 40px;
+  }
+}
+@media (min-width: 1201px) {
+  .sm-layoutMainContainer-0-2-28 {
+    padding: 80px 80px 0 80px;
+  }
+}
+  .sm-layoutLogoContainer-0-2-29 {
+    padding: 8px 40px 0 40px;
+  }
+  .sm-layoutToolbarContainer-0-2-30 {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    padding-top: 12px;
+    padding-left: 0;
+    padding-right: 12px;
+    flex-direction: row;
+  }
+  .sm-layoutToolbarContainer-0-2-30 > *:not(:first-child) {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  .sm-footerPrivacyIconContainer-0-2-31 {
+    display: flex;
+    flex-direction: row;
+  }
+  .sm-layoutContainer-d1-0-2-32 {
+    direction: ltr;
+  }
+  .sm-layoutToolbarContainer-d2-0-2-33 {
+    justify-content: flex-end;
+  }
+  .sm-footerPrivacyIconContainer-d3-0-2-34 {
+    justify-content: flex-end;
+  }
+  .footerPrivacyContainer-0-2-56 {
+    display: flex;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #6B787F;
+  }
+@media (max-width: 768px) {
+  .footerPrivacyContainer-0-2-56 {  }
+  .footerPrivacyContainer-0-2-56 span[role="tooltip"] {
+    display: none;
+  }
+}
+  .footerPrivacyContainer-d0-0-2-57 {
+    bottom: 15px;
+  }
+  .smqr-gridRow-0-2-1 {
+    gap: 20px;
+    display: grid;
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+@media (max-width: 640px) {
+  .smqr-gridRow-0-2-1 {
+    grid-template-columns: minmax(auto, 100%);
+  }
+}
+  .smqr-gridItem-0-2-2 {
+    box-sizing: border-box;
+  }
+@media (max-width: 640px) {
+  .smqr-gridItem-0-2-2 {
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+}
+  .smqr-gridItem1Item-0-2-3 {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+@media (min-width: 641px) {
+  .smqr-gridItem2Items-0-2-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .smqr-gridItem3Items-0-2-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1025px) {
+  .smqr-gridItem3Items-0-2-5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .smqr-gridItem4Items-0-2-6 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1025px) {
+  .smqr-gridItem4Items-0-2-6 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+  .sm-surveyHeaderContainer-0-2-5 {  }
+  .sm-surveyToolbarContainer-0-2-6 {  }
+  .sm-surveyTitleContainer-0-2-7 {  }
+  .sm-pageHeaderContainer-0-2-8 {  }
+  .sm-mainContainer-0-2-9 {
+    outline: none;
+  }
+  .sm-layoutMainContainer-0-2-10 {  }
+  .sm-questionContainer-0-2-11 {
+    padding-top: 32px;
+  }
+  .sm-pageFooterContainer-0-2-12 {
+    margin: 30px 0 24px;
+  }
+  .sm-pageNavigationContainer-0-2-13 {  }
+  .sm-sronlyFocus-0-2-14 {  }
+  .sm-sronlyFocus-0-2-14:not(:focus), .sm-sronlyFocus-0-2-14:not(:hover) {
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .sm-routerDebugInfo-0-2-15 {
+    display: block;
+    opacity: 0.1;
+    font-size: 12px;
+    text-align: center;
+    word-break: break-all;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .sm-pageDescriptionOkButton-0-2-16 {
+    margin-top: 40px;
+  }
+  .sm-surveyFooterContainer-0-2-17 {
+    padding: 0 0 40px 0;
+  }
+  .sm-classicProgressBarTop-0-2-18 {
+    margin-bottom: 36px;
+  }
+  .sm-customThankyouContainer-0-2-19 {
+    color: rgba(255,255,255,1);
+    display: block;
+    font-size: 14px;
+    text-align: center;
+  }
+  .sm-surveyFooterContainer-d0-0-2-20 {
+    margin-bottom: 0px;
+  }
+  .sm-logoContainer-0-2-41 {
+    width: 100%;
+    display: flex;
+  }
+  .sm-logoWrapper-0-2-42 {  }
+  .sm-logoImage-0-2-43 {
+    width: 100%;
+    height: 100%;
+  }
+@media only screen and (max-width: 1024px) {
+  .sm-logoImage-0-2-43 {
+    height: auto;
+  }
+}
+  .sm-logoContainer-d0-0-2-44 {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .sm-logoWrapper-d1-0-2-45 {
+    width: auto;
+    height: auto;
+  }
+  .sm-pageNavigationContainer-0-2-52 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-right: -5px;
+    justify-content: center;
+  }
+@media (max-width: 640px) {
+  .sm-pageNavigationContainer-0-2-52 {
+    margin-right: -10px;
+  }
+}
+@media (max-width: 480px) {
+  .sm-pageNavigationContainer-0-2-52 {
+    flex-wrap: nowrap;
+  }
+}
+  .sm-navButtons-0-2-53 {
+    transition: all 0.2s linear;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+@media (max-width: 640px) {
+  .sm-navButtons-0-2-53 {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .sm-navButtons-0-2-53 {
+    flex-basis: 100%;
+  }
+}
+  .surveyTitleContainerV2-0-2-21 {  }
+  .surveyTitleContainerV2-d0-0-2-22 {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .seoBanner-0-2-1 {
+    color: #ffffff;
+    padding: 8px 2.2rem 6px;
+    position: relative;
+    font-size: 16px;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: normal;
+    line-height: 1.26;
+    border-bottom: 1px solid #edeeee;
+    background-color: #ffffff;
+  }
+  .embeddedContainer-0-2-2 {
+    display: flex;
+    flex-align: center;
+    flex-justify: center;
+    flex-direction: column;
+  }
+@media (min-width: 1200px) {
+  .embeddedContainer-0-2-2 {
+    flex-direction: row;
+  }
+}
+  .seoBannerContents-0-2-3 {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    justify-content: center;
+  }
+@media (min-width: 1200px) {
+  .seoBannerContents-0-2-3 {
+    padding-top: 1rem;
+  }
+}
+  .closeXButton-0-2-4 {
+    top: 0.625rem;
+    right: 0.625rem;
+    position: absolute;
+  }
+  .closeXButton-0-2-4 button {
+    border: none;
+    height: auto;
+    padding: 0 !important;
+  }
+  .closeXButton-0-2-4 svg {
+    width: 18px;
+    height: 18px;
+  }
+  .smqr-richTextContent-0-2-26 a {
+    color: blue;
+    text-decoration: underline;
+  }
+  .smqr-richTextContent-0-2-26 ol {
+    margin: 16px 0;
+    padding: 0 0 0 40px;
+    list-style-type: decimal;
+  }
+  .smqr-richTextContent-0-2-26 ul {
+    margin: 16px 0;
+    padding: 0 0 0 40px;
+    list-style: disc outside none;
+  }
+  .smqr-richTextContent-0-2-26 p {
+    margin: 13px 0;
+  }
+  .smqr-richTextContent-0-2-26 b {
+    font-weight: bold;
+  }
+  .smqr-richTextContent-0-2-26 strong {
+    font-weight: bold;
+  }
+  .smqr-richTextContent-0-2-26 em {
+    font-style: italic;
+  }
+  .smqr-richTextContent-0-2-26 i {
+    font-style: italic;
+  }
+  .smqr-richTextContent-0-2-26 big {
+    font-size: larger;
+  }
+  .smqr-richTextContent-0-2-26 small {
+    font-size: smaller;
+  }
+  .smqr-richTextContent-0-2-26 sup {
+    top: -0.5em;
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+  }
+  .smqr-richTextContent-0-2-26 iframe {
+    border: 0;
+    max-width: 100%;
+  }
+  .smqr-richTextContent-0-2-26 img {
+    border: 0;
+    height: auto;
+    max-width: 100%;
+    -ms-interpolation-mode: bicubic;
+  }
+  .smqr-richTextContent-0-2-26 span[data-tooltip] {
+    cursor: pointer;
+    display: inline;
+    position: relative;
+    border-bottom: 1px dashed;
+    text-decoration: inherit;
+  }
+  .smqr-richTextContent-0-2-26 ul ul li {
+    list-style: circle;
+  }
+  .smqr-richTextContent-0-2-26 a:hover {
+    cursor: pointer;
+  }
+  .smqr-richTextContent-0-2-26 a:focus {
+    outline: currentColor auto 1px;
+  }
+  .smqr-svgContainer-0-2-47 {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+  }
+  .smqr-paddingBox-0-2-14 {  }
+  .smqr-paddingBox-d0-0-2-15 {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+  .smqr-paddingBox-d1-0-2-55 {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+  .smqr-footerRow-0-2-8 {  }
+  .smqr-containerStyles-0-2-9 {
+    position: relative;
+    transition: opacity 500ms ease-out;
+  }
+  .smqr-errorRow-0-2-10 {
+    overflow: hidden;
+  }
+  .smqr-formReset-0-2-11 {
+    border: 0;
+    min-width: 0;
+  }
+  .smqr-headerRow-0-2-12 {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .smqr-footerRow-d0-0-2-13 {
+    padding-top: 20px;
+  }
+  .smqr-footerRow-d1-0-2-54 {
+    padding-top: 20px;
+  }
+  .smqr-containerVertical-0-2-27 {
+    display: initial;
+  }
+  .smqr-containerHorizontal-0-2-28 {
+    display: block;
+  }
+  .smqr-column-0-2-29 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .smqr-columnHorizontal-0-2-30 {  }
+  .smqr-columnHorizontalAutoAdjust-0-2-31 {
+    width: auto;
+  }
+@media (min-width: 481px) {
+  .smqr-containerVertical-0-2-27 {
+    display: flex;
+  }
+  .smqr-containerHorizontal-0-2-28 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .smqr-columnHorizontal-0-2-30 {
+    width: 19%;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .smqr-columnHorizontal-0-2-30 {
+    width: 24%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .smqr-columnHorizontal-0-2-30 {
+    width: 100%;
+    display: block;
+  }
+  .smqr-columnHorizontalAutoAdjust-0-2-31 {
+    width: 100%;
+    display: block;
+  }
+}
+  .smqr-answerLayoutCell-0-2-32 {  }
+  .smqr-otherLayoutCell-0-2-33 {  }
+  .smqr-answerLayoutCell-d0-0-2-34 {
+    flex: 0 0 auto;
+    margin: 0 2px 5px 2px;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+  .smqr-otherLayoutCell-d1-0-2-35 {
+    margin: 0 2px 5px 2px;
+  }
+  .smqr-answerLayoutCell-d2-0-2-59 {
+    flex: 0 0 auto;
+    margin: 0 2px 5px 2px;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+  .smqr-otherLayoutCell-d3-0-2-60 {
+    margin: 0 2px 5px 2px;
+  }
+  .smqr-inputField-0-2-99 {
+    color: rgba(174,174,174,1);
+    width: 100%;
+    border: 1px solid rgba(174,174,174,1);
+    padding: 6px;
+    font-size: 18px;
+    max-width: 100%;
+    transition: all 0.1s linear;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 500;
+    line-height: 1.5em;
+    border-radius: 0px;
+    background-color: #fff;
+  }
+@media only screen and (max-width: 1024px) {
+  .smqr-inputField-0-2-99 {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .smqr-inputField-0-2-99 {  }
+}
+  .smqr-inputField-0-2-99:focus, .smqr-inputField-0-2-99:hover {
+    outline: 2px solid rgba(18,131,75,1);
+    outline-offset: 0;
+  }
+  .smqr-inputField-0-2-99:read-only:not(:disabled) {
+    color: #fff;
+    opacity: 0.5;
+    border-color: transparent;
+    background-color: rgba(0,0,0,0.40);
+  }
+  .smqr-inputField-0-2-99:disabled {
+    opacity: 0.4;
+  }
+  .smqr-inputField-d0-0-2-100 {
+    height: [object Object];
+  }
+@media only screen and (min-width: 481px) {
+  .smqr-inputField-d0-0-2-100 {
+    width: calc(50ch + 12px);
+  }
+}
+  .smqr-inputContainer-0-2-42 {
+    width: 1em;
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
+    min-width: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+  .smqr-input-0-2-43 {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0.00001;
+    z-index: 1;
+    position: absolute;
+  }
+  .smqr-controlIcon-0-2-44 {
+    width: 100%;
+    height: 100%;
+    transition: opacity .2s linear;
+  }
+  .smqr-input-d0-0-2-45 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d1-0-2-46 {
+    opacity: 0;
+  }
+  .smqr-input-d2-0-2-51 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d3-0-2-52 {
+    opacity: 0;
+  }
+  .smqr-input-d4-0-2-67 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d5-0-2-68 {
+    opacity: 0;
+  }
+  .smqr-input-d6-0-2-72 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d7-0-2-73 {
+    opacity: 0;
+  }
+  .smqr-input-d8-0-2-77 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d9-0-2-78 {
+    opacity: 0;
+  }
+  .smqr-input-d10-0-2-82 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d11-0-2-83 {
+    opacity: 0;
+  }
+  .smqr-input-d12-0-2-87 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d13-0-2-88 {
+    opacity: 0;
+  }
+  .smqr-input-d14-0-2-97 {
+    cursor: pointer;
+  }
+  .smqr-controlIcon-d15-0-2-98 {
+    opacity: 0;
+  }
+  .smqr-checkboxInput-0-2-65 {  }
+  .smqr-checkboxInput-d0-0-2-66 {
+    color: rgba(255,255,255,1);
+    border: 1px solid rgba(255,255,255,1);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .smqr-checkboxInput-d0-0-2-66 .checkmark {
+    fill: #000;
+  }
+  .smqr-checkboxInput-d0-0-2-66:focus-within {
+    box-shadow: 0 0 0 1px rgba(18,131,75,1);
+    border-color: #fff;
+  }
+  .smqr-checkboxInput-d0-0-2-66 input {
+    cursor: pointer;
+  }
+  .smqr-checkboxInput-d1-0-2-71 {
+    color: rgba(255,255,255,1);
+    border: 1px solid rgba(255,255,255,1);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .smqr-checkboxInput-d1-0-2-71 .checkmark {
+    fill: #000;
+  }
+  .smqr-checkboxInput-d1-0-2-71:focus-within {
+    box-shadow: 0 0 0 1px rgba(18,131,75,1);
+    border-color: #fff;
+  }
+  .smqr-checkboxInput-d1-0-2-71 input {
+    cursor: pointer;
+  }
+  .smqr-checkboxInput-d2-0-2-76 {
+    color: rgba(255,255,255,1);
+    border: 1px solid rgba(255,255,255,1);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .smqr-checkboxInput-d2-0-2-76 .checkmark {
+    fill: #000;
+  }
+  .smqr-checkboxInput-d2-0-2-76:focus-within {
+    box-shadow: 0 0 0 1px rgba(18,131,75,1);
+    border-color: #fff;
+  }
+  .smqr-checkboxInput-d2-0-2-76 input {
+    cursor: pointer;
+  }
+  .smqr-checkboxInput-d3-0-2-81 {
+    color: rgba(255,255,255,1);
+    border: 1px solid rgba(255,255,255,1);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .smqr-checkboxInput-d3-0-2-81 .checkmark {
+    fill: #000;
+  }
+  .smqr-checkboxInput-d3-0-2-81:focus-within {
+    box-shadow: 0 0 0 1px rgba(18,131,75,1);
+    border-color: #fff;
+  }
+  .smqr-checkboxInput-d3-0-2-81 input {
+    cursor: pointer;
+  }
+  .smqr-checkboxInput-d4-0-2-86 {
+    color: rgba(255,255,255,1);
+    border: 1px solid rgba(255,255,255,1);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .smqr-checkboxInput-d4-0-2-86 .checkmark {
+    fill: #000;
+  }
+  .smqr-checkboxInput-d4-0-2-86:focus-within {
+    box-shadow: 0 0 0 1px rgba(18,131,75,1);
+    border-color: #fff;
+  }
+  .smqr-checkboxInput-d4-0-2-86 input {
+    cursor: pointer;
+  }
+  .smqr-checkboxInput-d5-0-2-96 {
+    color: rgba(255,255,255,1);
+    border: 1px solid rgba(255,255,255,1);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .smqr-checkboxInput-d5-0-2-96 .checkmark {
+    fill: #000;
+  }
+  .smqr-checkboxInput-d5-0-2-96:focus-within {
+    box-shadow: 0 0 0 1px rgba(18,131,75,1);
+    border-color: #fff;
+  }
+  .smqr-checkboxInput-d5-0-2-96 input {
+    cursor: pointer;
+  }
+  .smqr-checkboxContainer-0-2-61 {  }
+  .smqr-icon-0-2-62 {
+    margin-top: 3.5px;
+    flex-shrink: 0;
+  }
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  .smqr-icon-0-2-62 {
+    margin-right: 8px;
+  }
+}
+  .smqr-checkboxContainer-d0-0-2-63 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: inherit;
+  }
+  .smqr-checkboxContainer-d0-0-2-63:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-checkboxContainer-d0-0-2-63:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d1-0-2-64 {
+    font-size: 20px;
+  }
+  .smqr-checkboxContainer-d2-0-2-69 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: inherit;
+  }
+  .smqr-checkboxContainer-d2-0-2-69:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-checkboxContainer-d2-0-2-69:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d3-0-2-70 {
+    font-size: 20px;
+  }
+  .smqr-checkboxContainer-d4-0-2-74 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: inherit;
+  }
+  .smqr-checkboxContainer-d4-0-2-74:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-checkboxContainer-d4-0-2-74:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d5-0-2-75 {
+    font-size: 20px;
+  }
+  .smqr-checkboxContainer-d6-0-2-79 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: inherit;
+  }
+  .smqr-checkboxContainer-d6-0-2-79:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-checkboxContainer-d6-0-2-79:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d7-0-2-80 {
+    font-size: 20px;
+  }
+  .smqr-checkboxContainer-d8-0-2-84 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: inherit;
+  }
+  .smqr-checkboxContainer-d8-0-2-84:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-checkboxContainer-d8-0-2-84:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d9-0-2-85 {
+    font-size: 20px;
+  }
+  .smqr-checkboxContainer-d10-0-2-94 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: inherit;
+  }
+  .smqr-checkboxContainer-d10-0-2-94:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-checkboxContainer-d10-0-2-94:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d11-0-2-95 {
+    font-size: 20px;
+  }
+  .smqr-radioInput-0-2-40 {
+    color: #fff;
+    border: 1px solid rgba(174,174,174,1);
+    border-radius: 100%;
+  }
+  .smqr-radioInput-0-2-40 .checkmark {
+    fill: #000;
+  }
+  .smqr-radioInput-0-2-40:focus-within {
+    box-shadow: 0 0 0 1px rgba(18,131,75,1);
+    border-color: #fff;
+  }
+  .smqr-radioInput-0-2-40 input {
+    cursor: pointer;
+  }
+  .smqr-radioInput-d0-0-2-41 {
+    background-color: #fff;
+  }
+  .smqr-radioInput-d1-0-2-50 {
+    background-color: #fff;
+  }
+  .smqr-controlLabel-0-2-36 {  }
+  .smqr-icon-0-2-37 {
+    margin-top: 3.5px;
+    flex-shrink: 0;
+  }
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  .smqr-icon-0-2-37 {
+    margin-right: 8px;
+  }
+}
+  .smqr-controlLabel-d0-0-2-38 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: transparent;
+  }
+  .smqr-controlLabel-d0-0-2-38:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-controlLabel-d0-0-2-38:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d1-0-2-39 {
+    font-size: 20px;
+  }
+  .smqr-controlLabel-d2-0-2-48 {
+    gap: 8px;
+    color: rgba(174,174,174,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px 7px 8px;
+    font-size: 14px;
+    font-style: normal;
+    align-items: start;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 4px;
+    highlight-color: rgba(208,210,211,1);
+    text-decoration: none;
+    background-color: transparent;
+  }
+  .smqr-controlLabel-d2-0-2-48:hover {
+    border: 1px dashed rgba(255,255,255,1);
+  }
+  .smqr-controlLabel-d2-0-2-48:focus-within {
+    background: rgba(0,0,0,0.40);
+  }
+  .smqr-icon-d3-0-2-49 {
+    font-size: 20px;
+  }
+  .smqr-srOnly-0-2-16 {
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    width: 1px !important;
+    border: 0 !important;
+    height: 1px !important;
+    margin: -1px;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+  }
+  .smqr-addonContainer-0-2-17 {
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+  .smqr-container-0-2-18 {
+    display: flex;
+    position: relative;
+  }
+  .smqr-questionNumber-0-2-19 {  }
+  .smqr-questionTitle-0-2-20 {  }
+  .smqr-requiredAsterisk-0-2-21 {  }
+  .smqr-richText-0-2-22 {
+    flex: 1 0;
+    word-break: break-word;
+  }
+  .smqr-questionNumber-d0-0-2-23 {
+    flex: 0 0;
+    margin: 0 0.25em 0 0;
+  }
+  .smqr-questionTitle-d1-0-2-24 {
+    color: rgba(255,255,255,1);
+    margin: 0;
+    font-size: 16px;
+    word-wrap: break-word;
+    font-style: normal;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 400;
+    line-height: 1.25;
+    white-space: normal;
+    text-decoration: none;
+  }
+  .smqr-requiredAsterisk-d2-0-2-25 {
+    margin: 0 0.25em 0 0;
+    display: inline-block;
+  }
+  .smqr-questionNumber-d3-0-2-56 {
+    flex: 0 0;
+    margin: 0 0.25em 0 0;
+  }
+  .smqr-questionTitle-d4-0-2-57 {
+    color: rgba(255,255,255,1);
+    margin: 0;
+    font-size: 16px;
+    word-wrap: break-word;
+    font-style: normal;
+    font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+    font-weight: 400;
+    line-height: 1.25;
+    white-space: normal;
+    text-decoration: none;
+  }
+  .smqr-requiredAsterisk-d5-0-2-58 {
+    margin: 0 0.25em 0 0;
+    display: inline-block;
+  }
+  .smqr-checkbox-0-2-89 {  }
+  .smqr-checkbox-0-2-89 label {
+    align-items: baseline;
+  }
+  .smqr-labelContainer-0-2-90 {
+    display: flex;
+    flex-direction: column;
+  }
+  .smqr-textInput-0-2-91 {
+    font-size: 14px;
+    max-width: calc(100% - 32px);
+    margin-top: 5px;
+    line-height: normal;
+    margin-left: 32px;
+  }
+@media (max-width: 480px) {
+  .smqr-textInput-0-2-91 {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+  .smqr-checkHover-0-2-92 {  }
+  .smqr-checkHover-0-2-92:hover {
+    cursor: pointer;
+    outline: none;
+  }
+  .smqr-textInput-d0-0-2-93 {
+    opacity: 0.5;
+  }
+  .smqr-commentChoiceContainer-0-2-53 {
+    margin-top: 10px;
+  }
+  .smqr-commentChoiceContainer-0-2-7 {
+    margin-top: 10px;
+  }
+  .layoutTopContainerV2-0-2-35 {  }
+  .layoutContentContainerV2-0-2-36 {  }
+  .layoutPartialContainerV2-0-2-37 {  }
+  .layoutPartialContainerV2-0-2-37:before {  }
+  .layoutTopContainerV2-d0-0-2-38 {
+    margin: [object Object];
+    background-color: #fff;
+    max-width: 896px;
+  }
+  .layoutContentContainerV2-d1-0-2-39 {
+    overflow-x: visible;
+  }
+  .layoutPartialContainerV2-d2-0-2-40 {  }
+  .layoutPartialContainerV2-d2-0-2-40:before {  }</style><style data-jss="" data-meta="smquestions-respondent-global-styles, Unthemed">
+[class*='smqr-'],[class*='smqr-']::before,[class*='smqr-']::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+}
+</style><style data-jss="" data-meta="Themed">
+@font-face {
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/regular.woff) format('woff');
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/regular.eot#iefix) format('embedded-opentype');
+  font-family: 'National 2';
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/regular.woff2) format('woff2');
+}
+@font-face {
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/medium.woff) format('woff');
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/medium.eot#iefix) format('embedded-opentype');
+  font-family: 'National 2';
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://cdn.smassets.net/assets/static/fonts/national2/medium.woff2) format('woff2');
+}
+[class*='wrench'], [class*='wrench']::before, [class*='wrench']::after {
+  box-sizing: border-box;
+  font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-size: 16px;
+}
+</style><style data-jss="" data-meta="Unthemed">
+.smqr-richTextContent-0-2-26 a {
+  color: blue;
+  text-decoration: underline;
+}
+.smqr-richTextContent-0-2-26 ol {
+  margin: 16px 0;
+  padding: 0 0 0 40px;
+  list-style-type: decimal;
+}
+.smqr-richTextContent-0-2-26 ul {
+  margin: 16px 0;
+  padding: 0 0 0 40px;
+  list-style: disc outside none;
+}
+.smqr-richTextContent-0-2-26 p {
+  margin: 13px 0;
+}
+.smqr-richTextContent-0-2-26 b {
+  font-weight: bold;
+}
+.smqr-richTextContent-0-2-26 strong {
+  font-weight: bold;
+}
+.smqr-richTextContent-0-2-26 em {
+  font-style: italic;
+}
+.smqr-richTextContent-0-2-26 i {
+  font-style: italic;
+}
+.smqr-richTextContent-0-2-26 big {
+  font-size: larger;
+}
+.smqr-richTextContent-0-2-26 small {
+  font-size: smaller;
+}
+.smqr-richTextContent-0-2-26 sup {
+  top: -0.5em;
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+.smqr-richTextContent-0-2-26 iframe {
+  border: 0;
+  max-width: 100%;
+}
+.smqr-richTextContent-0-2-26 img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  -ms-interpolation-mode: bicubic;
+}
+.smqr-richTextContent-0-2-26 span[data-tooltip] {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  border-bottom: 1px dashed;
+  text-decoration: inherit;
+}
+.smqr-richTextContent-0-2-26 ul ul li {
+  list-style: circle;
+}
+.smqr-richTextContent-0-2-26 a:hover {
+  cursor: pointer;
+}
+.smqr-richTextContent-0-2-26 a:focus {
+  outline: currentColor auto 1px;
+}
+</style><style data-jss="" data-meta="Unthemed">
+.smqr-svgContainer-0-2-47 {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+}
+</style><style data-jss="" data-meta="Unthemed">
+</style><style data-jss="" data-meta="Unthemed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Unthemed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="Unthemed">
+.smqr-commentChoiceContainer-0-2-53 {
+  margin-top: 10px;
+}
+</style><style data-jss="" data-meta="Unthemed">
+.smqr-commentChoiceContainer-0-2-7 {
+  margin-top: 10px;
+}
+</style><style data-jss="" data-meta="Themed">
+.skipLinks-0-2-23 {
+  top: 0;
+  clip: rect(0 0 0 0);
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  z-index: 999999;
+  overflow: hidden;
+  position: absolute;
+  font-size: 16px;
+  font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+  font-weight: 500;
+  background-color: #fff;
+}
+.skipLinks-0-2-23:focus-within {
+  clip: auto;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  position: fixed;
+}
+.skipLinks-0-2-23 > a {
+  color: #007faa;
+  margin-right: 8px;
+  text-decoration: underline;
+}
+.skipLinks-0-2-23 > a:hover, .skipLinks-0-2-23 > a:focus {
+  outline: 2px solid #007faa;
+  outline-offset: 2px;
+}
+</style><style data-jss="" data-meta="sm, Themed">
+</style><style data-jss="" data-meta="sm, Themed">
+</style><style data-jss="" data-meta="sm, Themed">
+</style><style data-jss="" data-meta="sm, Themed">
+</style><style data-jss="" data-meta="Unthemed">
+</style><style data-jss="" data-meta="Themed">
+</style><style data-jss="" data-meta="sm, Themed">
+.smqr-gridRow-0-2-1 {
+  gap: 20px;
+  display: grid;
+  max-width: 100%;
+  margin-bottom: 40px;
+}
+@media (max-width: 640px) {
+  .smqr-gridRow-0-2-1 {
+    grid-template-columns: minmax(auto, 100%);
+  }
+}
+.smqr-gridItem-0-2-2 {
+  box-sizing: border-box;
+}
+@media (max-width: 640px) {
+  .smqr-gridItem-0-2-2 {
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+}
+.smqr-gridItem1Item-0-2-3 {
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 641px) {
+  .smqr-gridItem2Items-0-2-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .smqr-gridItem3Items-0-2-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1025px) {
+  .smqr-gridItem3Items-0-2-5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .smqr-gridItem4Items-0-2-6 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1025px) {
+  .smqr-gridItem4Items-0-2-6 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+</style><style data-jss="" data-meta="sm, Themed">
+</style><style data-jss="" data-meta="sm, Themed">
+</style><style data-jss="" data-meta="sm, Themed">
+.sm-pageNavigationContainer-0-2-92 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-right: -5px;
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .sm-pageNavigationContainer-0-2-92 {
+    margin-right: -10px;
+  }
+}
+@media (max-width: 480px) {
+  .sm-pageNavigationContainer-0-2-92 {
+    flex-wrap: nowrap;
+  }
+}
+.sm-navButtons-0-2-93 {
+  transition: all 0.2s linear;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+@media (max-width: 640px) {
+  .sm-navButtons-0-2-93 {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .sm-navButtons-0-2-93 {
+    flex-basis: 100%;
+  }
+}
+</style><style data-jss="" data-meta="Unthemed">
+</style><style data-jss="" data-meta="sm, Themed">
+</style><style data-jss="" data-meta="Themed">
+.seoBanner-0-2-1 {
+  color: #ffffff;
+  padding: 8px 2.2rem 6px;
+  position: relative;
+  font-size: 16px;
+  font-family: 'National 2', National2, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
+  font-weight: normal;
+  line-height: 1.26;
+  border-bottom: 1px solid #edeeee;
+  background-color: #ffffff;
+}
+.embeddedContainer-0-2-2 {
+  display: flex;
+  flex-align: center;
+  flex-justify: center;
+  flex-direction: column;
+}
+@media (min-width: 1200px) {
+  .embeddedContainer-0-2-2 {
+    flex-direction: row;
+  }
+}
+.seoBannerContents-0-2-3 {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  justify-content: center;
+}
+@media (min-width: 1200px) {
+  .seoBannerContents-0-2-3 {
+    padding-top: 1rem;
+  }
+}
+.closeXButton-0-2-4 {
+  top: 0.625rem;
+  right: 0.625rem;
+  position: absolute;
+}
+.closeXButton-0-2-4 button {
+  border: none;
+  height: auto;
+  padding: 0 !important;
+}
+.closeXButton-0-2-4 svg {
+  width: 18px;
+  height: 18px;
+}
+</style></head><body style="margin:unset"><div id="__next"><div class="skipLinks-0-2-23"><a href="https://www.surveymonkey.com/r/8XKW76J?pagename=%2Fqt-6%2Fqtprotobuf-installation-windows-vcpkg.html#main-content-520697341">Skip to content</a></div><div class="sm-layoutContainer-0-2-65 sm-layoutContainer-d1-0-2-73" id="survey_data" data-survey-format="CLASSIC" data-page-id="59493936"><div class="sm-layoutPartialContainer-0-2-66"></div><div class="sm-layoutContentContainer-0-2-67" id="survey-layout-content-container"><div class="sm-layoutTopContainer-0-2-68"><div class="sm-layoutToolbarContainer-0-2-71 sm-layoutToolbarContainer-d2-0-2-74"><div></div></div><div class="sm-layoutLogoContainer-0-2-70"><div class="sm-logoContainer-0-2-81 sm-logoContainer-d0-0-2-84"><div class="sm-logoWrapper-0-2-82 sm-logoWrapper-d1-0-2-85"><img src="./b94c1007-f463-4043-a248-cf3b07e6c7dd.png" alt="" class="sm-logoImage-0-2-83"></div></div></div></div><div class="sm-layoutMainContainer-0-2-69 sm-layoutMainContainer-0-2-53"><div id="survey-title-container-520697341" class="sm-surveyTitleContainer-0-2-50"><div class="sm-surveyTitleOuterWrapper-0-2-88 sm-surveyTitleOuterWrapper-d2-0-2-91"><div class="sm-surveyTitleWrapper-0-2-87 sm-surveyTitleWrapper-d1-0-2-90"></div></div></div><main id="main-content-520697341" class="sm-mainContainer-0-2-52" tabindex="-1"><div id="page-header-container-520697341"></div><form id="form-520697341" class="sm-questionContainer-0-2-54"><div data-testid="QuestionRowLayout__Test" class="smqr-gridRow-0-2-1 smqr-gridItem1Item-0-2-3"><div class="smqr-gridItem-0-2-2"><div id="view-215128905" data-testid="ClassicView__215128905"><div id="question-field-215128905" data-testid="MultipleChoiceQuestionType" class="smqr-containerStyles-0-2-9"><div class="smqr-paddingBox-0-2-14 smqr-paddingBox-d0-0-2-15" data-testid="QuestionSpacing__paddingBox"><div id="error-row-215128905" class="smqr-errorRow-0-2-10" style="height: 0px;"></div><fieldset class="smqr-formReset-0-2-11"><legend id="question-title-legend-215128905" class="smqr-headerRow-0-2-12" tabindex="-1"><div id="question-title-215128905" class="smqr-container-0-2-18 smqr-questionTitle-0-2-20 smqr-questionTitle-d1-0-2-24" translate="no"><span class="smqr-richTextContent-0-2-26 smqr-richText-0-2-22" translate="no">Was this page helpful?</span></div></legend><div role="radiogroup"><div class="smqr-containerHorizontal-0-2-28"><div class="smqr-column-0-2-29 smqr-columnHorizontal-0-2-30" data-testid="answer-layout-column"><div data-testid="answer-layout-cell" class="smqr-answerLayoutCell-0-2-32 smqr-answerLayoutCell-d0-0-2-34"><label tabindex="-1" for="1539584534" class="smqr-controlLabel-0-2-36 smqr-controlLabel-d0-0-2-38"><span class="smqr-inputContainer-0-2-42 smqr-radioInput-0-2-40 smqr-radioInput-d0-0-2-41 smqr-icon-0-2-37 smqr-icon-d1-0-2-39"><input class="smqr-input-0-2-43 smqr-input-d0-0-2-45" type="radio" id="1539584534" name="question-field-215128905" aria-labelledby="1539584534-label" value="1539584534"><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d1-0-2-46" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="RadioIcon"><g class="radio-icon"><ellipse fill="currentColor" class="background" transform="translate(8 8)" rx="8" ry="8"></ellipse><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span id="1539584534-label" class="smqr-richTextContent-0-2-26" translate="no">Yes</span></label></div></div><div class="smqr-column-0-2-29 smqr-columnHorizontal-0-2-30" data-testid="answer-layout-column"><div data-testid="answer-layout-cell" class="smqr-answerLayoutCell-0-2-32 smqr-answerLayoutCell-d0-0-2-34"><label tabindex="-1" for="1539584535" class="smqr-controlLabel-0-2-36 smqr-controlLabel-d2-0-2-48"><span class="smqr-inputContainer-0-2-42 smqr-radioInput-0-2-40 smqr-radioInput-d1-0-2-50 smqr-icon-0-2-37 smqr-icon-d3-0-2-49"><input class="smqr-input-0-2-43 smqr-input-d2-0-2-51" type="radio" id="1539584535" name="question-field-215128905" aria-labelledby="1539584535-label" value="1539584535"><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d3-0-2-52" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="RadioIcon"><g class="radio-icon"><ellipse fill="currentColor" class="background" transform="translate(8 8)" rx="8" ry="8"></ellipse><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span id="1539584535-label" class="smqr-richTextContent-0-2-26" translate="no">No</span></label></div></div></div><div class="smqr-otherLayoutCell-0-2-33 smqr-otherLayoutCell-d1-0-2-35" data-testid="Other-NOTA"></div></div></fieldset></div></div></div></div></div><div data-testid="QuestionRowLayout__Test" class="smqr-gridRow-0-2-1 smqr-gridItem1Item-0-2-3"><div class="smqr-gridItem-0-2-2"><div id="view-215128302" data-testid="ClassicView__215128302"><div id="question-field-215128302" data-testid="CheckboxQuestionType" class="smqr-containerStyles-0-2-9"><div class="smqr-paddingBox-0-2-14 smqr-paddingBox-d1-0-2-55" data-testid="QuestionSpacing__paddingBox"><div id="error-row-215128302" class="smqr-errorRow-0-2-10" style="height: 0px;"></div><fieldset class="smqr-formReset-0-2-11"><legend id="question-title-legend-215128302" class="smqr-headerRow-0-2-12" tabindex="-1"><div id="question-title-215128302" class="smqr-container-0-2-18 smqr-questionTitle-0-2-20 smqr-questionTitle-d4-0-2-57" translate="no"><span class="smqr-richTextContent-0-2-26 smqr-richText-0-2-22" translate="no">What could be better in Qt documentation?</span></div></legend><div class="smqr-containerVertical-0-2-27"><div class="smqr-column-0-2-29" data-testid="answer-layout-column"><div data-testid="answer-layout-cell" class="smqr-answerLayoutCell-0-2-32 smqr-answerLayoutCell-d2-0-2-59"><label for="1539580320" class="smqr-checkboxContainer-0-2-61 smqr-checkboxContainer-d0-0-2-63" tabindex="-1"><span class="smqr-inputContainer-0-2-42 smqr-checkboxInput-0-2-65 smqr-checkboxInput-d0-0-2-66 smqr-icon-0-2-62 smqr-icon-d1-0-2-64"><input class="smqr-input-0-2-43 smqr-input-d4-0-2-67" type="checkbox" id="1539580320" value="1539580320"><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d5-0-2-68" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="CheckboxIcon"><g class="checkbox-icon"><rect fill="currentColor" class="background" width="16" height="16" rx="2" ry="2"></rect><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span class="smqr-richTextContent-0-2-26" translate="no">Add or update content/information</span></label></div><div data-testid="answer-layout-cell" class="smqr-answerLayoutCell-0-2-32 smqr-answerLayoutCell-d2-0-2-59"><label for="1539580321" class="smqr-checkboxContainer-0-2-61 smqr-checkboxContainer-d2-0-2-69" tabindex="-1"><span class="smqr-inputContainer-0-2-42 smqr-checkboxInput-0-2-65 smqr-checkboxInput-d1-0-2-71 smqr-icon-0-2-62 smqr-icon-d3-0-2-70"><input class="smqr-input-0-2-43 smqr-input-d6-0-2-72" type="checkbox" id="1539580321" value="1539580321"><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d7-0-2-73" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="CheckboxIcon"><g class="checkbox-icon"><rect fill="currentColor" class="background" width="16" height="16" rx="2" ry="2"></rect><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span class="smqr-richTextContent-0-2-26" translate="no">Improve the explanation/tutorials</span></label></div><div data-testid="answer-layout-cell" class="smqr-answerLayoutCell-0-2-32 smqr-answerLayoutCell-d2-0-2-59"><label for="1539580322" class="smqr-checkboxContainer-0-2-61 smqr-checkboxContainer-d4-0-2-74" tabindex="-1"><span class="smqr-inputContainer-0-2-42 smqr-checkboxInput-0-2-65 smqr-checkboxInput-d2-0-2-76 smqr-icon-0-2-62 smqr-icon-d5-0-2-75"><input class="smqr-input-0-2-43 smqr-input-d8-0-2-77" type="checkbox" id="1539580322" value="1539580322"><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d9-0-2-78" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="CheckboxIcon"><g class="checkbox-icon"><rect fill="currentColor" class="background" width="16" height="16" rx="2" ry="2"></rect><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span class="smqr-richTextContent-0-2-26" translate="no">Additional examples/code snippets</span></label></div><div data-testid="answer-layout-cell" class="smqr-answerLayoutCell-0-2-32 smqr-answerLayoutCell-d2-0-2-59"><label for="1539580323" class="smqr-checkboxContainer-0-2-61 smqr-checkboxContainer-d6-0-2-79" tabindex="-1"><span class="smqr-inputContainer-0-2-42 smqr-checkboxInput-0-2-65 smqr-checkboxInput-d3-0-2-81 smqr-icon-0-2-62 smqr-icon-d7-0-2-80"><input class="smqr-input-0-2-43 smqr-input-d10-0-2-82" type="checkbox" id="1539580323" value="1539580323"><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d11-0-2-83" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="CheckboxIcon"><g class="checkbox-icon"><rect fill="currentColor" class="background" width="16" height="16" rx="2" ry="2"></rect><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span class="smqr-richTextContent-0-2-26" translate="no">Clarify links/API references</span></label></div><div data-testid="answer-layout-cell" class="smqr-answerLayoutCell-0-2-32 smqr-answerLayoutCell-d2-0-2-59"><label for="1539580324" class="smqr-checkboxContainer-0-2-61 smqr-checkboxContainer-d8-0-2-84" tabindex="-1"><span class="smqr-inputContainer-0-2-42 smqr-checkboxInput-0-2-65 smqr-checkboxInput-d4-0-2-86 smqr-icon-0-2-62 smqr-icon-d9-0-2-85"><input class="smqr-input-0-2-43 smqr-input-d12-0-2-87" type="checkbox" id="1539580324" value="1539580324"><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d13-0-2-88" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="CheckboxIcon"><g class="checkbox-icon"><rect fill="currentColor" class="background" width="16" height="16" rx="2" ry="2"></rect><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span class="smqr-richTextContent-0-2-26" translate="no">Improve structure/navigation</span></label></div></div></div><div class="smqr-otherLayoutCell-0-2-33 smqr-otherLayoutCell-d3-0-2-60"><label for="checkbox-input-1539580325" class="smqr-checkboxContainer-0-2-61 smqr-checkboxContainer-d10-0-2-94" tabindex="-1"><span class="smqr-inputContainer-0-2-42 smqr-checkboxInput-0-2-65 smqr-checkboxInput-d5-0-2-96 smqr-icon-0-2-62 smqr-icon-d11-0-2-95"><input class="smqr-input-0-2-43 smqr-input-d14-0-2-97" type="checkbox" id="checkbox-input-1539580325" maxlength="20000" value=""><svg class="smqr-svgContainer-0-2-47 smqr-controlIcon-0-2-44 smqr-controlIcon-d15-0-2-98" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" data-testid="CheckboxIcon"><g class="checkbox-icon"><rect fill="currentColor" class="background" width="16" height="16" rx="2" ry="2"></rect><path fill="#fff" class="checkmark" transform="matrix(.91924 .91924 -.91924 .91924 -.72152 -9.5796)" d="m14.521 0h1.4788v8h-5.0216l-0.002914-1.4404h3.5456l-1e-6 -6.5596z"></path></g></svg></span><span class="smqr-richTextContent-0-2-26" translate="no">Other suggestion (please specify)</span></label><input type="text" class="smqr-inputField-0-2-99 smqr-inputField-d0-0-2-100 smqr-textInput-0-2-91 smqr-textInput-d0-0-2-93 smqr-checkHover-0-2-92" aria-disabled="false" aria-required="false" aria-readonly="false" aria-labelledby="checkbox-input-1539580325" spellcheck="true" id="checkbox-field-1539580325" maxlength="20000" tabindex="-1" value=""></div></fieldset></div></div></div></div></div></form><footer id="page-footer-container-520697341" class="sm-pageFooterContainer-0-2-55"><div id="view-pageNavigation" data-testid="ClassicView__pageNavigation"><div class="sm-pageNavigationContainer-0-2-92 sm-pageNavigationContainer-0-2-56"><button class="sm-surveyButton-0-2-94 sm-surveyButton-d0-0-2-95 sm-navButtons-0-2-93" type="button" translate="no">Submit</button></div></div></footer></main><footer id="survey-footer-container-520697341" class="sm-surveyFooterContainer-0-2-60 sm-surveyFooterContainer-d0-0-2-63"></footer></div><div class="sm-footerPrivacyIconContainer-0-2-72 sm-footerPrivacyIconContainer-d3-0-2-75"><div class="footerPrivacyContainer-0-2-96 footerPrivacyContainer-d0-0-2-97" id="privacy-icon-lock" data-testid="FooterPrivacyIcon__PrivacyIcon"><span class="wrenchTooltipContainer__R_ynE"><span class="wrenchTooltip__ck6WN wrenchTooltip-placement-left____1xn" id="wds-tooltip-1" role="tooltip"><span class="wrenchTooltipBody__WRsmQ">Privacy &amp; Cookie Notice</span></span><span><a class="sm-surveyAnchor-0-2-98 sm-surveyAnchor-d0-0-2-99" rel="noreferrer" href="https://www.surveymonkey.com/mp/legal/privacy/?ut_source=survey_pp" target="_blank" aria-label="SurveyMonkey Privacy Icon" tabindex="0" describedby="wds-tooltip-1"><svg class="wrenchIcons__A8duN wrenchIcons-size-md__wW7AU wrenchIcons-color-light__B4pqO" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" aria-label="Privacy &amp; Cookie Notice" role="img"><g><path d="M8.002 0a4.01 4.01 0 0 1 3.993 3.811l.005.2v1.997l1.951.004c.541 0 .986.41 1.043.936l.006.114v7.887c0 .542-.41.988-.936 1.045L13.95 16H2.05a1.05 1.05 0 0 1-1.044-.936L1 14.949V7.046c0-.542.41-.988.936-1.045l.114-.006L4 5.997V3.993A3.993 3.993 0 0 1 7.792.005L8.002 0zM2.5 7.496V14.5h11V7.511l-11-.015zM8 8.984a.75.75 0 0 1 .743.649l.007.102v2.503a.75.75 0 0 1-1.493.102l-.007-.102V9.735a.75.75 0 0 1 .75-.75zm0-7.483A2.494 2.494 0 0 0 5.505 3.83l-.005.163V6l5 .007V4.011a2.51 2.51 0 0 0-2.336-2.504L8 1.5z"></path></g></svg></a></span></span></div></div></div></div></div><script id="__NEXT_DATA__" type="application/json" nonce="">{"props":{"pageProps":{"staticData":{"user":{"isAuthenticated":false,"id":"1","username":null,"languageId":1,"package":"1","email":"","group":null,"hipaa":null,"session":null},"client-config":{"amplitudeToken":"beb247315464a13bc86a0940b8c9bf9f","loggingAPIPath":"/resp/api/logger","dataAnalyticsAPIPath":"/resp/api/metrics","dataAnalyticsLogsName":"unused","dataAnalyticsLogsPath":"unused/unused","gtmId":"GTM-NGMP3BG","amplitudeForceAnonymous":true,"assetsHost":"//prod.smassets.net","assetsPath":"/assets/smweb/"},"environment":{"countryCode":"KR","languageCode":"en","languageId":1,"slLanguageLocale":"en-US","ip":"112.223.52.250","subdomain":"www","domain":"surveymonkey","countryRegion":"11","tld":"com"},"locale":{"isEUDC":false,"isEUSubdomain":false},"GDPR":{"isGDPRCountry":false,"hasGDPRConsent":true,"hasExplictlyDenied":false,"fidesBannerEnabled":false,"onetrustBannerEnabled":false},"pageRequestId":"0_Bx_jEt-WdamRjh9V99VlETNEFgUiPd7TO3ohGJ7yZvJMuVYekKtQ=="},"authToken":"eyJhbGciOiJFUzI1NiIsImtpZCI6Im1JVVk5T1lUQkpxazRXZ0c5d0VtR2diQjdMSWt4Zy1WcDBvUDJOdDl5QUEifQ.eyJzdWIiOiJPTUdlY3R5VndmRDAyWUx6M2JKdERnIiwiemlkIjoiTjdWdUJMWXF3ZV96cDRDQ0daWUNDdyJ9.nkvZrmLR2zhMUDlGa0F1-efxwn4psqiy2cybnoo9NS8AZuQ_lgzHpb7fc3U0_Wn5ylFNeIl0BJWpgY6TH11TuQ","translationData":{"localeCode":"en-US","languageCode":"en"},"smParam":null,"fetchServerSideDataSuccess":true,"spageSessionData":{"spageSession":{"surveyOwnerPackageId":"27","isSurveyEndPageEnabled":true,"pageIds":[59493936],"groupId":"450777","__typename":"SpageSessionResponse"}},"surveyPageData":{"surveyPage":{"id":"59493936","firstQuestionNumber":1,"heading":"Help Us Improve!","subHeading":"","position":1,"surveyData":"c0BEbA7iDy16YeLYMbA3PBT5bPbYsOiR0T2zG9ClbUwFCKJB3738Z_2Frw8PT_2Fxz0LPMHY6x6KJkMyz8dP0E5_2By3UIYIEwGAkA1C7uVznnLEplDPXz4xiU2YpKyO28uFK1NNBLpAT4vZvYNMvSmDjZJilNBZYMiOUy8z4BEmZ5nt3IKl0mZRRmiw22ncuVkBpGp97W0_2FoYCzBbvm_2Bj_2FXP3TiwM7JCtkHAHJjCVky2vpdtmUtOMVEdYV7Ki0d_2Bless0IarBageQMEhit1NLeoEP5c2eNFHKHlfPFg82j_2Ff6aEY_2F2kbRxOHkjS53ShAbSpyyYuAYxR24rhSPFMHzErIM0gFqdownBvamaIG2ke8JmLoVt7QhQY6FOzwpsXpPVY_2BlR87CWLY78IB_2BdYFHtL6SIgtFaNck0ohAzOnqHC5nC9XtGFKrf_2FExzG293QLp7st_2FRYNPIFF0zdsM0KFHr9I_2FPMfpciPEMHpvn6jL1Ble8btNXef9XtAZTegndj3BX_2Fyt8F1WzVIpT8_2F_2Fd7ih7oqwQ97ITLN0Uyqp6n3nkgdqllboGbEqhatczHBfInJwwAK6","visibleQuestionIds":["215128905","215128302"],"showDoneButton":true,"surveyPageQuestions":{"items":[{"id":"215128905","family":"MULTIPLE_CHOICE","hasPiping":false,"position":{"inPage":1,"inSurvey":1,"label":"1","pageId":"59493936","__typename":"QuestionPosition"},"heading":{"default":{"text":"Was this page helpful?","__typename":"QuestionHeading"},"assignments":[],"__typename":"QuestionHeadingConfiguration"},"variant":"SINGLE_ANSWER_RADIO","sorting":null,"layout":{"spacing":{"left":0,"right":0,"top":0,"bottom":0,"__typename":"QuestionLayoutSpacingOptions"},"width":{"format":"PERCENT","width":100,"__typename":"QuestionLayoutWidthOptions"},"answerLayout":"HORIZONTAL","placement":"NEW_ROW","__typename":"MultipleChoiceLayoutOptions"},"required":null,"answers":[{"id":"1539584534","label":"Yes","visible":true,"__typename":"ChoiceAnswer"},{"id":"1539584535","label":"No","visible":true,"__typename":"ChoiceAnswer"}],"answerOther":null,"answerNA":null,"validation":null,"__typename":"MultipleChoiceQuestionQM"},{"id":"215128302","family":"MULTIPLE_CHOICE","hasPiping":false,"position":{"inPage":2,"inSurvey":1,"label":"2","pageId":"59493936","__typename":"QuestionPosition"},"heading":{"default":{"text":"What could be better in Qt documentation?","__typename":"QuestionHeading"},"assignments":[],"__typename":"QuestionHeadingConfiguration"},"variant":"MANY_ANSWERS_CHECKBOX","sorting":null,"layout":{"spacing":{"left":0,"right":0,"top":0,"bottom":0,"__typename":"QuestionLayoutSpacingOptions"},"width":{"format":"PERCENT","width":100,"__typename":"QuestionLayoutWidthOptions"},"answerLayout":"VERTICAL","placement":"NEW_ROW","__typename":"MultipleChoiceLayoutOptions"},"required":null,"answers":[{"id":"1539580320","label":"Add or update content/information","visible":true,"__typename":"ChoiceAnswer"},{"id":"1539580321","label":"Improve the explanation/tutorials","visible":true,"__typename":"ChoiceAnswer"},{"id":"1539580322","label":"Additional examples/code snippets","visible":true,"__typename":"ChoiceAnswer"},{"id":"1539580323","label":"Clarify links/API references","visible":true,"__typename":"ChoiceAnswer"},{"id":"1539580324","label":"Improve structure/navigation","visible":true,"__typename":"ChoiceAnswer"}],"answerOther":{"id":"1539580325","label":"Other suggestion (please specify)","type":"ANSWER","requiredErrorText":"Please write any comments/suggestion","layout":{"linesCount":3,"charsCount":100,"__typename":"AnswerOtherLayout"},"visible":true,"__typename":"AnswerOther"},"answerNA":null,"validation":null,"__typename":"MultipleChoiceQuestionQM"}],"__typename":"SurveyQuestionListQM"},"__typename":"CurrentPage"},"surveyData":"c0BEbA7iDy16YeLYMbA3PBT5bPbYsOiR0T2zG9ClbUwFCKJB3738Z_2Frw8PT_2Fxz0LPMHY6x6KJkMyz8dP0E5_2By3UIYIEwGAkA1C7uVznnLEplDPXz4xiU2YpKyO28uFK1NNBLpAT4vZvYNMvSmDjZJilNBZYMiOUy8z4BEmZ5nt3IKl0mZRRmiw22ncuVkBpGp97W0_2FoYCzBbvm_2Bj_2FXP3TiwM7JCtkHAHJjCVky2vpdtmUtOMVEdYV7Ki0d_2Bless0IarBageQMEhit1NLeoEP5c2eNFHKHlfPFg82j_2Ff6aEY_2F2kbRxOHkjS53ShAbSpyyYuAYxR24rhSPFMHzErIM0gFqdownBvamaIG2ke8JmLoVt7QhQY6FOzwpsXpPVY_2BlR87CWLY78IB_2BdYFHtL6SIgtFaNck0ohAzOnqHC5nC9XtGFKrf_2FExzG293QLp7st_2FRYNPIFF0zdsM0KFHr9I_2FPMfpciPEMHpvn6jL1Ble8btNXef9XtAZTegndj3BX_2Fyt8F1WzVIpT8_2F_2Fd7ih7oqwQ97ITLN0Uyqp6n3nkgdqllboGbEqhatczHBfInJwwAK6","visibleQuestionIds":["215128905","215128302"]},"surveyData":"c0BEbA7iDy16YeLYMbA3PBT5bPbYsOiR0T2zG9ClbUwFCKJB3738Z_2Frw8PT_2Fxz0LPMHY6x6KJkMyz8dP0E5_2By3UIYIEwGAkA1C7uVznnLEplDPXz4xiU2YpKyO28uFK1NNBLpAT4vZvYNMvSmDjZJilNBZYMiOUy8z4BEmZ5nt3IKl0mZRRmiw22ncuVkBpGp97W0_2FoYCzBbvm_2Bj_2FXP3TiwM7JCtkHAHJjCVky2vpdtmUtOMVEdYV7Ki0d_2Bless0IarBageQMEhit1NLeoEP5c2eNFHKHlfPFg82j_2Ff6aEY_2F2kbRxOHkjS53ShAbSpyyYuAYxR24rhSPFMHzErIM0gFqdownBvamaIG2ke8JmLoVt7QhQY6FOzwpsXpPVY_2BlR87CWLY78IB_2BdYFHtL6SIgtFaNck0ohAzOnqHC5nC9XtGFKrf_2FExzG293QLp7st_2FRYNPIFF0zdsM0KFHr9I_2FPMfpciPEMHpvn6jL1Ble8btNXef9XtAZTegndj3BX_2Fyt8F1WzVIpT8_2F_2Fd7ih7oqwQ97ITLN0Uyqp6n3nkgdqllboGbEqhatczHBfInJwwAK6","visibleQuestionIds":["215128905","215128302"],"surveyTheme":{"id":"22201213","isAccessible":true,"isCustomTheme":true,"isStockTheme":false,"isTeamTheme":false,"name":"Heritage (Modified)","version":"V3","layout":"BACKGROUND_FULL_TEXT_LEFT","surveyPage":{"overlayColor":"rgba(255,255,255,1.0)","__typename":"SurveyPageStyle"},"surveyTitle":{"color":null,"fontSize":26,"fontFamily":"National2","fontWeight":"REGULAR","fontStyle":"NORMAL","textDecoration":"NONE","backgroundColor":null,"backgroundImage":{"url":null,"__typename":"Image"},"__typename":"CommonStyle"},"pageTitle":{"color":null,"fontSize":26,"fontFamily":"National2","fontWeight":"REGULAR","fontStyle":"NORMAL","textDecoration":"NONE","backgroundColor":null,"backgroundImage":{"url":null,"__typename":"Image"},"__typename":"CommonStyle"},"questionTitle":{"color":null,"fontSize":16,"fontFamily":"National2","fontWeight":"REGULAR","fontStyle":"NORMAL","textDecoration":"NONE","backgroundColor":null,"backgroundImage":{"url":null,"__typename":"Image"},"__typename":"CommonStyle"},"questionBody":{"highlightColor":"rgba(208,210,211,1)","fontFamily":"National2","fontSize":14,"fontStyle":"NORMAL","fontWeight":"LIGHT","textDecoration":"NONE","__typename":"QuestionBodyStyle"},"button":{"color":null,"fontSize":15,"fontFamily":"National2","fontWeight":"REGULAR","fontStyle":null,"textDecoration":null,"backgroundColor":null,"backgroundImage":{"url":null,"__typename":"Image"},"__typename":"CommonStyle"},"error":{"color":null,"fontSize":16,"fontFamily":null,"fontWeight":"REGULAR","fontStyle":"NORMAL","textDecoration":"NONE","backgroundColor":null,"backgroundImage":{"url":null,"__typename":"Image"},"__typename":"CommonStyle"},"progressBarStyle":null,"persistentProgressBar":null,"progressBarIndicator":null,"pageDescription":null,"logoStyle":null,"artifacts":{"background":{"url":null,"__typename":"Image"},"title":{"url":null,"__typename":"Image"},"__typename":"SurveyThemeImages"},"selectedColorPalette":{"titleColor":"rgba(255,255,255,1)","questionColor":"rgba(255,255,255,1)","answerColor":"rgba(174,174,174,1)","primaryAccentColor":"rgba(18,131,75,1)","secondaryAccentColor":"rgba(255,255,255,1)","primaryBackgroundColor":"rgba(31,31,31,1)","secondaryBackgroundColor":"rgba(255,255,255,1)","__typename":"ColorPalette"},"surveyContainer":null,"__typename":"SurveyTheme"},"respondentData":null,"collector":{"id":"459057950","surveyId":"520697341","editResponseType":"UNTIL_COMPLETE","isAnonymous":false,"isUserCanned":false,"surveyResultsUrl":null,"allowMultipleResponses":true,"ipAddressFilter":null,"surveyEndPageOptions":{"completionUrl":"https://www.surveymonkey.com","redirectType":"LOOP","__typename":"CollectorWeblink"},"isClosed":false,"createdAt":"2024-12-09T12:37:00.000Z","type":"WEBLINK","responseCount":689,"status":"OPEN","subdomain":"www","fqdn":"www.surveymonkey.com","weblink":{"type":"STANDARD","__typename":"CollectorWeblink"},"popup":null,"closedPage":{"closedMessage":"This survey is currently closed.  Please contact the author of this survey for further assistance.","__typename":"CollectorClosedPage"},"thankYouPage":{"isEnabled":true,"message":"Thank you for providing valuable feedback!","__typename":"CollectorThankYouPage"},"disqualificationPage":{"defaultMessage":"Thank you for completing our survey!","message":"Thank you for completing our survey!","type":"message","url":"https://www.surveymonkey.com","__typename":"CollectorDisqualificationPage"},"confirmationEmailEnabled":false,"customMetaData":{"title":"Qt Documentation Feedback","description":"Help us improve!","imageUrl":"https://surveymonkey-assets.s3.amazonaws.com/collector/459057950/image_upload/fdfd856b-677b-4e0c-81b9-e8860d51d4f7.png","__typename":"CollectorCustomMetaData"},"passwordOptions":{"isEnabled":false,"__typename":"CollectorPasswordOptions"},"__typename":"Collector"},"existingResponses":[],"survey":{"id":"520697341","isQuiz":false,"title":"Documentation Feedback","titleHTML":"Documentation Feedback","format":"CLASSIC","questionCount":2,"answerableQuestionCount":2,"userId":"513109916","version":48,"generatedCategory":{"id":null,"__typename":"GeneratedSurveyCategory"},"language":{"id":"1","name":"English","code":"en","__typename":"Language","overriddenCode":"en","overriddenId":"1"},"defaultSurveyLanguage":{"id":"1","name":"English","displayName":"English","code":"en","__typename":"LanguageTag"},"availableSurveyLanguages":[],"pages":{"totalCount":1,"__typename":"SurveyPageList"},"quizOptions":{"showResults":false,"__typename":"SurveyQuizOptions"},"navigation":{"ok":{"label":"OK","__typename":"SurveyButton"},"previous":{"label":"Prev","__typename":"SurveyButton"},"next":{"label":"Next","__typename":"SurveyButton"},"done":{"label":"Submit","__typename":"SurveyButton"},"__typename":"SurveyNavigation"},"design":{"surveyTitle":{"enabled":false,"horizontalAlignment":"LEFT","__typename":"SurveyTitle"},"showPageTitles":false,"showPageNumbers":false,"footer":{"enabled":false,"grayscale":false,"__typename":"SurveyFooter"},"progressBar":{"enabled":false,"position":"DISABLED","showPercent":false,"showPageNumber":false,"__typename":"SurveyProgressBar"},"logo":{"enabled":true,"height":34,"verticalAlignment":"LEFT_TOP","width":200,"size":null,"image":{"url":"https://surveymonkey-assets.s3.amazonaws.com/survey/520697341/b94c1007-f463-4043-a248-cf3b07e6c7dd.png","description":"","__typename":"Image"},"__typename":"SurveyLogo"},"questionNumbering":{"enabled":false,"type":"DISABLED","__typename":"SurveyQuestionNumbering"},"showRequiredQuestionAsterisks":true,"themeId":"22201213","__typename":"SurveyDesign"},"introText":"","__typename":"Survey"},"collectorKey":"8XKW76J","encryptedSmSubject":null,"endPageUrl":"/r/8XKW76J","isEndPageUrlExternal":false,"hasSurveyVersionChanged":false,"pageOptions":{"reqLocale":"en","slLanguageLocale":"en-US","languageCode":"en","languageId":"1","tier":"","logo":"","surveyId":null,"collectorId":"459057950","collectorKey":"","hasStandard":false,"subDomain":"www","canonical":"https://www.surveymonkey.com/r/8XKW76J","canonicalHostname":"https://www.surveymonkey.com","randomNumber":0.8064393072404059,"isExistingUser":false,"firstQuestionResponse":null,"recipientId":null,"inEmailResponseCaptureEnabled":false,"isWhiteLabel":false,"isGovernment":false,"isNonBrandedSmParam":false,"isEmbeddedSmParam":false,"isKiosk":false,"isBasicEndpageGroup":false,"baseLanguageId":"1","collectorAllowMultipleResponses":true,"encryptedSmParam":"ks8Lyx69DceZpPJlEiR_2BaecVf07FUqqPRee4HtuwzbK1h2T2ePU3BMTvo0FPNnV3WiC_2FgrRGPOetSsGNKd0o2MKcoWDRtjaJQIhl_2FmYFqmvKpqiVNS1RwJCO9D_2F35guZMD2oGT6PIGCfZ02Eus8qh1oDVGLNzf2pOj3YgMeeG9zVMkFnGmHvFSUwnguLmCJWp24cdfO6RXuSOJQ0vbNotdWZtjrKoHBOC0wC_2BBpsIrM_3D","shouldShowSurveyTaken":false,"shouldShowSurveyClosed":false,"shouldRemoveRPCookie":false,"encryptedCookieValue":null},"spageGoogleFontsLink":null,"shouldIndexPage":false,"layout":{"variant":"SurveyMonkey","options":{"actionFlow":"SurveyTaking","pageId":"SurveyTaking","legacyWeb":"responseweb","includeHeader":false,"includeFooter":false}},"respondent":null,"rum":{"enabled":true,"cdn":{"version":"latest","integrity":""},"settings":{"app":"respweb","beaconUrl":"https://rum-ingest.us1.signalfx.com/v1/rum","rumAuth":"OCrwYn6e-K-2HPcOrYlKvg","environment":"prod","version":"main-20251218-20282","sampleRate":1,"debug":false,"instrumentations":{"interactions":false}}}},"__N_SSP":true},"page":"/r/surveyTaking/[collectKey]","query":{"pagename":"/qt-6/qtprotobuf-installation-windows-vcpkg.html","collectKey":"8XKW76J"},"buildId":"respweb-dev","assetPrefix":"//prod.smassets.net/assets/smweb","isFallback":false,"gssp":true,"scriptLoader":[]}</script><next-route-announcer><p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;"></p></next-route-announcer></body></html>
