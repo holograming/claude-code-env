@@ -87,6 +87,7 @@ project/
 | 작업 | 파일 |
 |------|------|
 | **자동화 프로토콜 (필수)** | **`automation/automation-guide.md`** ⭐ |
+| **코딩 표준 (필수)** | **`references/coding-standards.md`** ⭐ |
 | **결정 데이터베이스** | **`automation/decisions.json`** |
 | **에러 복구** | **`automation/error-patterns.json`** |
 | 프로젝트 생성 & 의존성 | `references/project-setup.md` |

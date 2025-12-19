@@ -309,13 +309,16 @@ class AutomationEngine:
 
         # Create main.cpp
         if project_type == "gui":
-            self._create_gui_main(project_dir, gui_framework)
+            self._create_gui_main(project_dir, gui_framework, project_name)
         else:
-            self._create_cli_main(project_dir)
+            self._create_cli_main(project_dir, project_name)
 
         # Create vcpkg.json if needed
         if gui_framework:
             self._create_vcpkg_json(project_dir, gui_framework)
+
+        # Create .clang-format configuration (Google C++ Style Guide)
+        self._create_clang_format_config(project_dir)
 
         return True
 
@@ -376,63 +379,81 @@ target_compile_options({project_name} PRIVATE
 """
         (project_dir / "CMakeLists.txt").write_text(cmake_content)
 
-    def _create_cli_main(self, project_dir: Path):
-        """Create basic CLI main.cpp."""
-        main_content = """#include <iostream>
+    def _create_cli_main(self, project_dir: Path, project_name: str = None):
+        """Create basic CLI main.cpp with Google C++ Style Guide compliance."""
+        if project_name is None:
+            project_name = project_dir.name
 
-int main() {
-    std::cout << "Hello, C++!" << std::endl;
-    return 0;
-}
+        main_content = f"""// {project_name} - Command-line application
+// Copyright (c) 2025
+
+#include <iostream>
+
+int main() {{
+  std::cout << "Hello from {project_name}!" << std::endl;
+  return 0;
+}}
 """
         (project_dir / "src" / "main.cpp").write_text(main_content)
 
-    def _create_gui_main(self, project_dir: Path, framework: str):
-        """Create basic GUI main.cpp."""
+    def _create_gui_main(self, project_dir: Path, framework: str, project_name: str = None):
+        """Create basic GUI main.cpp with Google C++ Style Guide compliance."""
+        if project_name is None:
+            project_name = project_dir.name
+
         if framework == "qt6":
-            main_content = """#include <QApplication>
+            main_content = f"""// {project_name} - Qt6 GUI Application
+// Copyright (c) 2025
+
+#include <QApplication>
 #include <QMainWindow>
 #include <QLabel>
 
-int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
-    QMainWindow window;
-    window.setWindowTitle("Qt Application");
-    window.resize(400, 300);
-    window.show();
-    return app.exec();
-}
+int main(int argc, char* argv[]) {{
+  QApplication app(argc, argv);
+  QMainWindow window;
+  window.setWindowTitle("Qt Application");
+  window.resize(400, 300);
+  window.show();
+  return app.exec();
+}}
 """
         elif framework == "wxwidgets":
-            main_content = """#include <wx/wx.h>
+            main_content = f"""// {project_name} - wxWidgets GUI Application
+// Copyright (c) 2025
 
-class MyFrame : public wxFrame {
-public:
-    MyFrame() : wxFrame(NULL, wxID_ANY, "wxWidgets Application") {
-        wxPanel *panel = new wxPanel(this);
-        new wxStaticText(panel, wxID_ANY, "Hello, wxWidgets!");
-        SetSize(400, 300);
-    }
-};
+#include <wx/wx.h>
 
-class MyApp : public wxApp {
-public:
-    bool OnInit() override {
-        MyFrame *frame = new MyFrame();
-        frame->Show();
-        return true;
-    }
-};
+class MainFrame : public wxFrame {{
+ public:
+  MainFrame() : wxFrame(nullptr, wxID_ANY, "wxWidgets Application") {{
+    wxPanel* panel = new wxPanel(this);
+    new wxStaticText(panel, wxID_ANY, "Hello, wxWidgets!");
+    SetSize(400, 300);
+  }}
+}};
 
-wxIMPLEMENT_APP(MyApp);
+class MainApp : public wxApp {{
+ public:
+  bool OnInit() override {{
+    MainFrame* frame = new MainFrame();
+    frame->Show();
+    return true;
+  }}
+}};
+
+wxIMPLEMENT_APP(MainApp);
 """
         else:
-            main_content = """#include <iostream>
+            main_content = f"""// {project_name} - {framework.upper()} GUI Application
+// Copyright (c) 2025
 
-int main() {
-    std::cout << "Hello from """ + framework + """!" << std::endl;
-    return 0;
-}
+#include <iostream>
+
+int main() {{
+  std::cout << "Hello from {project_name}!" << std::endl;
+  return 0;
+}}
 """
         (project_dir / "src" / "main.cpp").write_text(main_content)
 
@@ -454,6 +475,20 @@ int main() {
             "dependencies": dependencies
         }
         (project_dir / "vcpkg.json").write_text(json.dumps(vcpkg_content, indent=2))
+
+    def _create_clang_format_config(self, project_dir: Path):
+        """Create .clang-format configuration (Google C++ Style Guide)."""
+        clang_format_config = """---
+Language: Cpp
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 120
+PointerAlignment: Left
+AllowShortFunctionsOnASingleLine: Empty
+BreakBeforeBraces: Attach
+---
+"""
+        (project_dir / ".clang-format").write_text(clang_format_config)
 
 
 def main():

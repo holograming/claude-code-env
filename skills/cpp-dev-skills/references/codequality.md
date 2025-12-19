@@ -1,5 +1,7 @@
 # Code Quality Tools
 
+**See also:** `references/coding-standards.md` for Google C++ Style Guide and naming conventions.
+
 ## Clang-Tidy (Linting)
 
 ```bash

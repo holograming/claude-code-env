@@ -265,6 +265,134 @@ auto_fix: VCPKG_MAX_CONCURRENCY=4 설정 → 재빌드
 
 ---
 
+## Step 8: 코드 생성 표준 준수 (Code Generation Standards)
+
+**모든 C++ 코드는 Google C++ Style Guide를 따라야 합니다.**
+
+Claude가 작성하는 모든 C++ 코드(템플릿 + 대화형 코드)는 일관된 품질 기준을 유지해야 합니다.
+
+### 필수 참조
+
+코드 생성 전에 반드시 읽기:
+- **`references/coding-standards.md`** ⭐ (Google C++ Style Guide 요약 + cpp-dev-skills 특화 규칙)
+
+### 코드 생성 체크리스트
+
+생성된 모든 C++ 코드는 다음을 만족해야 합니다:
+
+#### 네이밍 규칙 (MUST)
+- [ ] 타입명: `UpperCamelCase` (클래스, 구조체, enum)
+- [ ] 함수명: `UpperCamelCase()` (getters, setters, 모든 메서드)
+- [ ] 변수명: `lower_with_underscores` (지역변수, 매개변수)
+- [ ] 멤버 변수: `trailing_underscore_` (클래스 필드)
+- [ ] 상수: `kConstantName` (k-prefix)
+- [ ] 네임스페이스: `lower_with_underscores`
+
+#### 파일 구조 (MUST)
+- [ ] 헤더 가드: `#pragma once` 사용 (#ifndef 금지)
+- [ ] Include 순서: C++ 표준 → 써드파티 → 프로젝트
+- [ ] 파일 헤더 주석: 파일 목적 + 저작권 표기
+- [ ] 클래스당 하나의 파일 (예외: 작은 헬퍼)
+
+#### 포맷팅 (MUST)
+- [ ] 들여쓰기: 4칸 (탭 금지)
+- [ ] 줄 길이: 120자 이하
+- [ ] 여는 중괄호: 같은 줄
+- [ ] 포인터/참조: 왼쪽 정렬 (`int* ptr`, `int& ref`)
+
+#### 문서화 (PUBLIC API는 MUST)
+- [ ] 파일 헤더: 프로젝트명 + 파일 설명
+- [ ] 함수 문서: `///` Doxygen 형식 (public API)
+- [ ] @brief, @param, @return 모두 포함
+- [ ] 인라인 주석: "왜?"를 설명 (코드 내용 아님)
+
+#### Modern C++ (SHOULD)
+- [ ] Smart pointers 사용 (raw new/delete 금지)
+- [ ] `auto` 사용 (타입이 명확할 때)
+- [ ] Range-based for 루프
+- [ ] `nullptr` 사용 (NULL 금지)
+- [ ] Virtual 함수에 `override` 표기
+- [ ] `enum class` 사용 (plain enum 금지)
+
+### 나쁜 예 ❌ vs 좋은 예 ✅
+
+#### Before (나쁜 예)
+```cpp
+// Bad: 없는 헤더, 잘못된 네이밍, 들여쓰기 부족
+#ifndef CALCULATOR_H_
+#define CALCULATOR_H_
+
+namespace calculator {
+
+class calc {  // 소문자, 약어
+ public:
+  void add(double val);         // 소문자 함수
+  double get_result() const;    // snake_case (금지)
+
+ private:
+  double result;                // 언더스코어 없음
+};
+
+}
+#endif
+```
+
+#### After (좋은 예)
+```cpp
+// calculator - Mathematical operations library
+// Copyright (c) 2025
+
+#pragma once
+
+#include <cmath>
+
+namespace calculator {
+
+/// @brief Performs basic arithmetic operations.
+class Calculator {
+ public:
+  /// @brief Adds value to current state.
+  /// @param value Value to add.
+  void Add(double value);
+
+  /// @brief Gets current accumulated value.
+  /// @return Current result.
+  double GetResult() const;
+
+ private:
+  double result_;  // 트레일링 언더스코어
+};
+
+}  // namespace calculator
+```
+
+### 자동 포맷팅
+
+생성 후 반드시 실행:
+
+```bash
+# 자동 포맷팅 적용
+clang-format -i src/myclass.cpp
+
+# 포맷팅 확인 (드라이 런)
+clang-format --dry-run --Werror src/myclass.cpp
+```
+
+### 검증 실패 시
+
+생성된 코드가 표준을 따르지 않는 경우:
+1. `coding-standards.md` 재확인
+2. `init_project.py` 템플릿 검토 (Phase 2에서 수정됨)
+3. Claude 코드 생성 규칙 점검
+
+### 참고
+
+- 이 체크리스트는 cpp-dev-skills **모든** 자동 생성 코드에 적용
+- 기존 코드도 신규 코드와 일관성 유지
+- `.clang-format` 설정으로 자동화됨 (Google style + 4칸 들여쓰기)
+
+---
+
 ## 최소 질문 전략
 
 ### ONLY IF 매우 모호한 경우:
