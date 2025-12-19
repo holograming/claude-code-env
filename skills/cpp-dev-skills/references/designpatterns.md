@@ -3,130 +3,131 @@
 ## Header Guards
 
 ```cpp
-#ifndef MY_CLASS_H
-#define MY_CLASS_H
+// example - Header guard demonstration
+// Copyright (c) 2025
 
-// Or use pragma once (widely supported)
 #pragma once
 
 #include <iostream>
 #include <vector>
 
 class MyClass {
-private:
-    int value;
+ public:
+  MyClass();
+  ~MyClass();
+  void DoSomething();
 
-public:
-    MyClass();
-    ~MyClass();
-    void doSomething();
+ private:
+  int value_;
 };
-
-#endif
 ```
 
 ## Singleton Pattern
 
 ```cpp
-class Singleton {
-private:
-    static Singleton* instance;
-    Singleton() {}
+// singleton - Thread-safe singleton implementation
+// Copyright (c) 2025
 
-public:
-    static Singleton* getInstance() {
-        if (!instance) {
-            instance = new Singleton();
-        }
-        return instance;
-    }
-    
-    // Delete copy constructor and assignment
-    Singleton(const Singleton&) = delete;
-    Singleton& operator=(const Singleton&) = delete;
-};
-
-// Thread-safe C++11 version
 class Singleton {
-public:
-    static Singleton& getInstance() {
-        static Singleton instance;
-        return instance;
-    }
-private:
-    Singleton() = default;
+ public:
+  static Singleton& GetInstance() {
+    static Singleton instance;
+    return instance;
+  }
+
+  Singleton(const Singleton&) = delete;
+  Singleton& operator=(const Singleton&) = delete;
+
+ private:
+  Singleton() = default;
 };
 ```
 
 ## Factory Pattern
 
 ```cpp
-enum class ShapeType { Circle, Square, Triangle };
+// factory - Shape factory pattern implementation
+// Copyright (c) 2025
+
+enum class ShapeType { kCircle, kSquare, kTriangle };
 
 class ShapeFactory {
-public:
-    static std::unique_ptr<Shape> createShape(ShapeType type) {
-        switch (type) {
-            case ShapeType::Circle:
-                return std::make_unique<Circle>();
-            case ShapeType::Square:
-                return std::make_unique<Square>();
-            default:
-                return nullptr;
-        }
+ public:
+  static std::unique_ptr<Shape> CreateShape(ShapeType type) {
+    switch (type) {
+      case ShapeType::kCircle:
+        return std::make_unique<Circle>();
+      case ShapeType::kSquare:
+        return std::make_unique<Square>();
+      default:
+        return nullptr;
     }
+  }
 };
 ```
 
 ## Observer Pattern
 
 ```cpp
+// observer - Observer pattern implementation
+// Copyright (c) 2025
+
 class Observer {
-public:
-    virtual ~Observer() = default;
-    virtual void update(int value) = 0;
+ public:
+  virtual ~Observer() = default;
+  virtual void Update(int value) = 0;
 };
 
 class Subject {
-private:
-    std::vector<Observer*> observers;
+ public:
+  void Attach(Observer* obs) { observers_.push_back(obs); }
 
-public:
-    void attach(Observer* obs) { observers.push_back(obs); }
-    void detach(Observer* obs) {
-        observers.erase(
-            std::remove(observers.begin(), observers.end(), obs),
-            observers.end()
-        );
+  void Detach(Observer* obs) {
+    observers_.erase(
+        std::remove(observers_.begin(), observers_.end(), obs),
+        observers_.end());
+  }
+
+  void Notify(int value) {
+    for (auto obs : observers_) {
+      obs->Update(value);
     }
-    void notify(int value) {
-        for (auto obs : observers) obs->update(value);
-    }
+  }
+
+ private:
+  std::vector<Observer*> observers_;
 };
 ```
 
 ## RAII Pattern
 
 ```cpp
+// raii - RAII (Resource Acquisition Is Initialization) pattern
+// Copyright (c) 2025
+
 class FileHandler {
-private:
-    std::FILE* file;
-public:
-    FileHandler(const char* filename, const char* mode)
-        : file(std::fopen(filename, mode)) {
-        if (!file) throw std::runtime_error("Failed to open file");
+ public:
+  FileHandler(const char* filename, const char* mode)
+      : file_(std::fopen(filename, mode)) {
+    if (!file_) {
+      throw std::runtime_error("Failed to open file");
     }
-    ~FileHandler() {
-        if (file) std::fclose(file);
+  }
+
+  ~FileHandler() {
+    if (file_) {
+      std::fclose(file_);
     }
-    
-    // Disable copy
-    FileHandler(const FileHandler&) = delete;
-    FileHandler& operator=(const FileHandler&) = delete;
-    
-    // Enable move
-    FileHandler(FileHandler&& other) noexcept : file(other.file) {
-        other.file = nullptr;
-    }
+  }
+
+  FileHandler(const FileHandler&) = delete;
+  FileHandler& operator=(const FileHandler&) = delete;
+
+  FileHandler(FileHandler&& other) noexcept : file_(other.file_) {
+    other.file_ = nullptr;
+  }
+
+ private:
+  std::FILE* file_;
 };
 ```
